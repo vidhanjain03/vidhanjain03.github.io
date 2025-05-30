@@ -2,120 +2,150 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Vidhan Jain | Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f4f4f4;
+    * {
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: #f5f5f5;
       color: #333;
     }
     header {
-      background-color: #333;
+      background: #1a1a1a;
       color: white;
-      padding: 2rem;
+      padding: 3rem 1rem;
       text-align: center;
+      animation: fadeIn 2s ease-in-out;
     }
-    section {
-      padding: 2rem;
-      max-width: 1000px;
-      margin: auto;
-      background-color: white;
+    header img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid white;
       margin-bottom: 1rem;
-      border-radius: 8px;
     }
-    h2 {
-      color: #222;
-      border-bottom: 2px solid #ccc;
-      padding-bottom: 0.3rem;
+    h1 {
+      font-size: 2.5rem;
     }
-    ul {
-      list-style: none;
-      padding-left: 0;
-    }
-    li {
-      margin-bottom: 0.5rem;
+    p, a {
+      font-size: 1rem;
     }
     a {
       color: #1e88e5;
       text-decoration: none;
     }
+    .container {
+      max-width: 1000px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    section {
+      margin-bottom: 3rem;
+      animation: fadeInUp 1.5s ease;
+    }
+    h2 {
+      margin-bottom: 1rem;
+      color: #1a1a1a;
+      border-left: 5px solid #1e88e5;
+      padding-left: 0.5rem;
+    }
+    .project {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      margin-bottom: 1rem;
+      padding: 1rem;
+    }
+    .project a {
+      display: inline-block;
+      margin-top: 0.5rem;
+      color: #1e88e5;
+    }
     footer {
       text-align: center;
       padding: 1rem;
-      background-color: #333;
+      background-color: #1a1a1a;
       color: white;
+    }
+    @keyframes fadeIn {
+      from {opacity: 0;} to {opacity: 1;}
+    }
+    @keyframes fadeInUp {
+      from {opacity: 0; transform: translateY(30px);} to {opacity: 1; transform: translateY(0);}
     }
   </style>
 </head>
 <body>
 
 <header>
+  <img src="your-image.jpg" alt="Vidhan Jain Photo" />
   <h1>Vidhan Jain</h1>
   <p>📞 9755248639 | 📧 <a href="mailto:vidhanjain2013@gmail.com">vidhanjain2013@gmail.com</a></p>
   <p><a href="https://www.linkedin.com/in/vidhan-jain-bb9393197/" target="_blank">LinkedIn</a> | 
      <a href="https://github.com/vidhanjain03" target="_blank">GitHub</a></p>
 </header>
 
-<section>
-  <h2>Education</h2>
-  <ul>
-    <li><strong>M.Tech, Signal and Image Processing</strong> – NIT Rourkela (2024–Present), CGPA: 9.58</li>
-    <li><strong>B.Tech, Electronics and Communication</strong> – Jabalpur Engineering College (2019–2023), CGPA: 8.23</li>
-    <li><strong>High School (PCM)</strong> – Little World School (2018–2019), Percentage: 88.2%</li>
-  </ul>
-</section>
+<div class="container">
 
-<section>
-  <h2>Relevant Coursework</h2>
-  <ul>
-    <li>Computer Vision, Machine Intelligence, Soft Computing</li>
-    <li>Advanced DSP, Optimization Techniques, Linear Algebra</li>
-    <li>Probability, Multimedia Signal Processing, Data Structures</li>
-  </ul>
-</section>
+  <section>
+    <h2>Education</h2>
+    <ul>
+      <li><strong>NIT Rourkela</strong>, M.Tech Signal and Image Processing — CGPA: 9.58</li>
+      <li><strong>JEC</strong>, B.Tech ECE — CGPA: 8.23</li>
+      <li><strong>Little World School</strong> — 88.2%</li>
+    </ul>
+  </section>
 
-<section>
-  <h2>Experience</h2>
-  <p><strong>Research Intern</strong> — Space Application Centre, ISRO (Jun 2022 – Nov 2022)</p>
-  <ul>
-    <li>Developed a method to identify tree crowns from LiDAR data using region-growing algorithm.</li>
-    <li>Measured accuracy through ground truth comparison in layered point clouds.</li>
-  </ul>
-</section>
+  <section>
+    <h2>Research Project</h2>
+    <p><strong>Small Object Detection in Degraded Remote Sensing Images</strong></p>
+    <p>Using Sparsity and DETR for real-time and multi-resolution detection in degraded aerial images (haze, mist, etc.).</p>
+  </section>
 
-<section>
-  <h2>Research Project</h2>
-  <p><strong>Small Object Detection in Degraded Remote Sensing Images</strong> — NITR (Jan 2025 – Present)</p>
-  <ul>
-    <li>Model development using Sparsity and Detection Transformer (DETR) for small object detection in degraded aerial images.</li>
-    <li>Targets degradations like haze, mist, clouds with real-time and multi-resolution processing goals.</li>
-  </ul>
-</section>
+  <section>
+    <h2>Projects</h2>
 
-<section>
-  <h2>Projects</h2>
-  <ul>
-    <li><strong>Eye Disease Classification</strong> — ResNet50 outperformed ViT on 16,000+ augmented eye images. Accuracy: 84.2% (ResNet50)</li>
-    <li><strong>Face Mask Detection</strong> — MobileNetV2 with transfer learning for real-time object detection on 300-image dataset.</li>
-    <li><strong>Recommendation System</strong> — Anime recommendation engine using NLP and cosine similarity on dataset of 73,516 users.</li>
-  </ul>
-</section>
+    <div class="project">
+      <h3>Eye Disease Classification</h3>
+      <p>ResNet50 (84.2%) vs ViT (78.6%) trained on 16,000+ images.</p>
+      <a href="https://github.com/vidhanjain03/eye-disease-classification" target="_blank">View Project</a>
+    </div>
 
-<section>
-  <h2>Technical Skills</h2>
-  <ul>
-    <li><strong>Languages:</strong> Python, SQL, MATLAB</li>
-    <li><strong>ML/DL:</strong> PyTorch, TensorFlow, Sklearn, Skimage</li>
-    <li><strong>Developer Tools:</strong> VS Code</li>
-    <li><strong>Technologies:</strong> GitHub, WordPress</li>
-  </ul>
-</section>
+    <div class="project">
+      <h3>Face Mask Detection</h3>
+      <p>Used MobileNetV2 and transfer learning on mask dataset.</p>
+      <a href="https://github.com/vidhanjain03/face-mask-detection" target="_blank">View Project</a>
+    </div>
+
+    <div class="project">
+      <h3>Anime Recommendation System</h3>
+      <p>Cosine similarity-based recommendation on 70k+ users and 12k+ animes.</p>
+      <a href="https://github.com/vidhanjain03/anime-recommender" target="_blank">View Project</a>
+    </div>
+
+  </section>
+
+  <section>
+    <h2>Skills</h2>
+    <ul>
+      <li><strong>Languages:</strong> Python, SQL, MATLAB</li>
+      <li><strong>ML/DL:</strong> PyTorch, TensorFlow, Sklearn, Skimage</li>
+      <li><strong>Tools:</strong> VS Code, GitHub, WordPress</li>
+    </ul>
+  </section>
+
+</div>
 
 <footer>
-  <p>© 2025 Vidhan Jain</p>
+  <p>&copy; 2025 Vidhan Jain</p>
 </footer>
 
 </body>
