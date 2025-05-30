@@ -1,89 +1,122 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vidhan Jain's Portfolio</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Vidhan Jain | Portfolio</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+    header {
+      background-color: #333;
+      color: white;
+      padding: 2rem;
+      text-align: center;
+    }
+    section {
+      padding: 2rem;
+      max-width: 1000px;
+      margin: auto;
+      background-color: white;
+      margin-bottom: 1rem;
+      border-radius: 8px;
+    }
+    h2 {
+      color: #222;
+      border-bottom: 2px solid #ccc;
+      padding-bottom: 0.3rem;
+    }
+    ul {
+      list-style: none;
+      padding-left: 0;
+    }
+    li {
+      margin-bottom: 0.5rem;
+    }
+    a {
+      color: #1e88e5;
+      text-decoration: none;
+    }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background-color: #333;
+      color: white;
+    }
+  </style>
 </head>
-<body class="bg-gray-100 font-sans">
-  <!-- Header -->
-  <header class="bg-blue-600 text-white py-8">
-    <div class="container mx-auto px-4 text-center">
-      <h1 class="text-4xl font-bold">Vidhan Jain</h1>
-      <p class="mt-2 text-lg">Software Developer | Passionate about building innovative solutions</p>
-      <a href="https://github.com/vidhanjain03" target="_blank" class="mt-4 inline-block bg-white text-blue-600 px-4 py-2 rounded hover:bg-gray-200">Visit GitHub</a>
-    </div>
-  </header>
+<body>
 
-  <!-- Repositories Section -->
-  <section class="container mx-auto px-4 py-12">
-    <h2 class="text-3xl font-semibold text-center mb-8">My Projects</h2>
-    <div id="repo-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      <!-- Repository cards will be dynamically inserted here -->
-    </div>
-  </section>
+<header>
+  <h1>Vidhan Jain</h1>
+  <p>📞 9755248639 | 📧 <a href="mailto:vidhanjain2013@gmail.com">vidhanjain2013@gmail.com</a></p>
+  <p><a href="https://www.linkedin.com/in/vidhan-jain-bb9393197/" target="_blank">LinkedIn</a> | 
+     <a href="https://github.com/vidhanjain03" target="_blank">GitHub</a></p>
+</header>
 
-  <!-- Footer -->
-  <footer class="bg-gray-800 text-white py-4 text-center">
-    <p>&copy; 2025 Vidhan Jain. All rights reserved.</p>
-  </footer>
+<section>
+  <h2>Education</h2>
+  <ul>
+    <li><strong>M.Tech, Signal and Image Processing</strong> – NIT Rourkela (2024–Present), CGPA: 9.58</li>
+    <li><strong>B.Tech, Electronics and Communication</strong> – Jabalpur Engineering College (2019–2023), CGPA: 8.23</li>
+    <li><strong>High School (PCM)</strong> – Little World School (2018–2019), Percentage: 88.2%</li>
+  </ul>
+</section>
 
-  <script>
-    // Mock repository data (in a real app, fetch from GitHub API)
-    const repositories = [
-      {
-        name: "Personal-Website",
-        description: "A responsive personal portfolio website built with HTML, CSS, and JavaScript.",
-        language: "JavaScript",
-        html_url: "https://github.com/vidhanjain03/Personal-Website"
-      },
-      {
-        name: "Task-Manager",
-        description: "A Python-based CLI tool for managing daily tasks and reminders.",
-        language: "Python",
-        html_url: "https://github.com/vidhanjain03/Task-Manager"
-      },
-      {
-        name: "E-Commerce-App",
-        description: "A full-stack e-commerce platform using React and Node.js.",
-        language: "JavaScript",
-        html_url: "https://github.com/vidhanjain03/E-Commerce-App"
-      }
-    ];
+<section>
+  <h2>Relevant Coursework</h2>
+  <ul>
+    <li>Computer Vision, Machine Intelligence, Soft Computing</li>
+    <li>Advanced DSP, Optimization Techniques, Linear Algebra</li>
+    <li>Probability, Multimedia Signal Processing, Data Structures</li>
+  </ul>
+</section>
 
-    // Function to render repository cards
-    function renderRepositories(repos) {
-      const container = document.getElementById('repo-container');
-      repos.forEach(repo => {
-        const card = document.createElement('div');
-        card.className = 'bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition';
-        card.innerHTML = `
-          <h3 class="text-xl font-semibold text-blue-600">${repo.name}</h3>
-          <p class="mt-2 text-gray-600">${repo.description || 'No description available'}</p>
-          <p class="mt-2 text-sm text-gray-500">Language: ${repo.language || 'Unknown'}</p>
-          <a href="${repo.html_url}" target="_blank" class="mt-4 inline-block text-blue-600 hover:underline">View on GitHub</a>
-        `;
-        container.appendChild(card);
-      });
-    }
+<section>
+  <h2>Experience</h2>
+  <p><strong>Research Intern</strong> — Space Application Centre, ISRO (Jun 2022 – Nov 2022)</p>
+  <ul>
+    <li>Developed a method to identify tree crowns from LiDAR data using region-growing algorithm.</li>
+    <li>Measured accuracy through ground truth comparison in layered point clouds.</li>
+  </ul>
+</section>
 
-    // Render mock repositories
-    renderRepositories(repositories);
+<section>
+  <h2>Research Project</h2>
+  <p><strong>Small Object Detection in Degraded Remote Sensing Images</strong> — NITR (Jan 2025 – Present)</p>
+  <ul>
+    <li>Model development using Sparsity and Detection Transformer (DETR) for small object detection in degraded aerial images.</li>
+    <li>Targets degradations like haze, mist, clouds with real-time and multi-resolution processing goals.</li>
+  </ul>
+</section>
 
-    // Example of how to fetch real data (commented out, requires API setup)
-    /*
-    async function fetchRepositories() {
-      try {
-        const response = await fetch('https://api.github.com/users/vidhanjain03/repos');
-        const repos = await response.json();
-        renderRepositories(repos);
-      } catch (error) {
-        console.error('Error fetching repositories:', error);
-      }
-    }
-    // fetchRepositories();
-    */
-  </script>
+<section>
+  <h2>Projects</h2>
+  <ul>
+    <li><strong>Eye Disease Classification</strong> — ResNet50 outperformed ViT on 16,000+ augmented eye images. Accuracy: 84.2% (ResNet50)</li>
+    <li><strong>Face Mask Detection</strong> — MobileNetV2 with transfer learning for real-time object detection on 300-image dataset.</li>
+    <li><strong>Recommendation System</strong> — Anime recommendation engine using NLP and cosine similarity on dataset of 73,516 users.</li>
+  </ul>
+</section>
+
+<section>
+  <h2>Technical Skills</h2>
+  <ul>
+    <li><strong>Languages:</strong> Python, SQL, MATLAB</li>
+    <li><strong>ML/DL:</strong> PyTorch, TensorFlow, Sklearn, Skimage</li>
+    <li><strong>Developer Tools:</strong> VS Code</li>
+    <li><strong>Technologies:</strong> GitHub, WordPress</li>
+  </ul>
+</section>
+
+<footer>
+  <p>© 2025 Vidhan Jain</p>
+</footer>
+
 </body>
 </html>
