@@ -166,7 +166,18 @@
             cursor: pointer;
             padding: 12px 20px;
             font-size: 1.2rem;
-            animation: slideDown 0.6s ease 0.2s both;
+            animation: fadeInDown 0.6s ease 0.2s both;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         /* Main Container */
@@ -591,11 +602,11 @@
         @keyframes slideDown {
             from {
                 opacity: 0;
-                transform: translate(-50%, -20px);
+                transform: translateX(-50%) translateY(-20px);
             }
             to {
                 opacity: 1;
-                transform: translate(-50%, 0);
+                transform: translateX(-50%) translateY(0);
             }
         }
 
@@ -700,7 +711,7 @@
                     <a href="#contact" class="btn btn-secondary">Get In Touch</a>
                 </div>
                 <div class="social-links">
-                    <a href="mailto:vidhanjain2019@gmail.com" aria-label="Email">📧</a>
+                    <a href="/cdn-cgi/l/email-protection#8bfde2efe3eae5e1eae2e5b9bbbab2cbece6eae2e7a5e8e4e6" aria-label="Email">📧</a>
                     <a href="https://linkedin.com/in/vidhanjain" target="_blank" rel="noopener" aria-label="LinkedIn">💼</a>
                     <a href="https://github.com/vidhanjain03" target="_blank" rel="noopener" aria-label="GitHub">🔗</a>
                     <a href="tel:+919755248639" aria-label="Phone">📱</a>
@@ -784,7 +795,7 @@
                         <li>Proposed TSRNet, a novel lightweight network that retains weak thermal signatures of tiny individuals amidst background noise and clutter</li>
                         <li>Introduced the Dual-Frequency Refinement (DFR) module to enhance salient features while suppressing background noise</li>
                         <li>Developed the Axial Context Pooling (ACP) module that generates comprehensive 3D filter maps for salient region identification</li>
-                        <li>Achieved state-of-the-art performance: <strong>0.454 mAP@0.5</strong> on RGBT TinyPerson dataset, outperforming competitors by <strong>5.5%</strong> with only <strong>36.5 GFLOPs</strong></li>
+                        <li>Achieved state-of-the-art performance: <strong>0.454 <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="0568445545352b30">[email&#160;protected]</a></strong> on RGBT TinyPerson dataset, outperforming competitors by <strong>5.5%</strong> with only <strong>36.5 GFLOPs</strong></li>
                     </ul>
                 </div>
                 <div class="publication-card glass">
@@ -918,7 +929,7 @@
             <div class="contact-info">
                 <div class="contact-item glass">
                     <h4>Email</h4>
-                    <a href="mailto:vidhanjain2019@gmail.com">vidhanjain2019@gmail.com</a>
+                    <a href="/cdn-cgi/l/email-protection#12647b767a737c78737b7c2022232b52757f737b7e3c717d7f"><span class="__cf_email__" data-cfemail="46302f222e27282c272f287476777f06212b272f2a6825292b">[email&#160;protected]</span></a>
                 </div>
                 <div class="contact-item glass">
                     <h4>Phone</h4>
@@ -943,7 +954,7 @@
         </div>
     </footer>
 
-    <script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         // Theme Toggle
         function toggleTheme() {
             document.body.classList.toggle('light-mode');
@@ -1025,20 +1036,4 @@
             
             document.body.appendChild(trail);
             
-            setTimeout(() => trail.remove(), 1000);
-        });
-
-        // Add fadeOut animation
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes fadeOut {
-                to {
-                    opacity: 0;
-                    transform: scale(0);
-                }
-            }
-        `;
-        document.head.appendChild(style);
-    </script>
-</body>
-</html>
+            se
