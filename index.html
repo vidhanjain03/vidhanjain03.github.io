@@ -1,185 +1,1044 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Vidhan Jain | Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      scroll-behavior: smooth;
-    }
-    body {
-      font-family: 'Roboto', sans-serif;
-      background: linear-gradient(to right, #ece9e6, #ffffff);
-      color: #333;
-    }
-    header {
-      background: linear-gradient(120deg, #1e88e5, #1565c0);
-      color: white;
-      padding: 3rem 1rem;
-      text-align: center;
-      animation: fadeIn 2s ease-in-out;
-      border-bottom: 5px solid #0d47a1;
-    }
-    header img {
-      width: 140px;
-      height: 140px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 5px solid white;
-      margin-bottom: 1rem;
-    }
-    h1 {
-      font-size: 2.7rem;
-      margin-bottom: 0.5rem;
-    }
-    p, a {
-      font-size: 1.1rem;
-    }
-    a {
-      color: #ffca28;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-    .container {
-      max-width: 1100px;
-      margin: 3rem auto;
-      padding: 0 1rem;
-    }
-    section {
-      margin-bottom: 3rem;
-      animation: fadeInUp 1s ease;
-    }
-    h2 {
-      margin-bottom: 1.2rem;
-      color: #0d47a1;
-      font-size: 1.8rem;
-      border-left: 6px solid #1e88e5;
-      padding-left: 0.75rem;
-    }
-    ul {
-      list-style: disc inside;
-      padding-left: 1rem;
-    }
-    .project {
-      background: white;
-      border-radius: 12px;
-      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-      margin-bottom: 1.5rem;
-      padding: 1.5rem;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .project:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-    }
-    .project h3 {
-      margin-bottom: 0.5rem;
-      color: #1e88e5;
-    }
-    .project a {
-      display: inline-block;
-      margin-top: 0.5rem;
-      color: #1565c0;
-      background: #e3f2fd;
-      padding: 0.4rem 0.8rem;
-      border-radius: 4px;
-      text-decoration: none;
-    }
-    .project a:hover {
-      background: #bbdefb;
-    }
-    footer {
-      text-align: center;
-      padding: 1.5rem;
-      background-color: #1e88e5;
-      color: white;
-      border-top: 4px solid #0d47a1;
-    }
-    @keyframes fadeIn {
-      from {opacity: 0;} to {opacity: 1;}
-    }
-    @keyframes fadeInUp {
-      from {opacity: 0; transform: translateY(30px);} to {opacity: 1; transform: translateY(0);}
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vidhan Jain - ML/AI Research Engineer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;400;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --accent-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            --warm-gradient: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+            
+            --bg-main: #0a0e27;
+            --bg-secondary: #1a1f3a;
+            --text-primary: #ffffff;
+            --text-secondary: #b8c5d6;
+            --glass-bg: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --shadow-color: rgba(0, 0, 0, 0.3);
+        }
+
+        .light-mode {
+            --bg-main: #f0f4f8;
+            --bg-secondary: #ffffff;
+            --text-primary: #1a1f3a;
+            --text-secondary: #4a5568;
+            --glass-bg: rgba(255, 255, 255, 0.7);
+            --glass-border: rgba(255, 255, 255, 0.9);
+            --shadow-color: rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Space Mono', monospace;
+            background: var(--bg-main);
+            color: var(--text-primary);
+            overflow-x: hidden;
+            transition: background 0.5s ease, color 0.5s ease;
+            position: relative;
+        }
+
+        /* Animated Background */
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            opacity: 0.15;
+            overflow: hidden;
+        }
+
+        .gradient-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            animation: float 20s infinite ease-in-out;
+        }
+
+        .orb-1 {
+            width: 500px;
+            height: 500px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            top: -200px;
+            left: -200px;
+            animation-delay: 0s;
+        }
+
+        .orb-2 {
+            width: 400px;
+            height: 400px;
+            background: linear-gradient(135deg, #f093fb, #f5576c);
+            bottom: -150px;
+            right: -150px;
+            animation-delay: 5s;
+        }
+
+        .orb-3 {
+            width: 350px;
+            height: 350px;
+            background: linear-gradient(135deg, #4facfe, #00f2fe);
+            top: 50%;
+            right: 10%;
+            animation-delay: 10s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(30px, -50px) scale(1.1); }
+            66% { transform: translate(-20px, 20px) scale(0.9); }
+        }
+
+        /* Glass Container */
+        .glass {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            box-shadow: 0 8px 32px 0 var(--shadow-color);
+            transition: all 0.3s ease;
+        }
+
+        .glass:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 48px 0 var(--shadow-color);
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1000;
+            padding: 12px 24px;
+            animation: slideDown 0.6s ease;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        nav a {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-gradient);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Theme Toggle */
+        .theme-toggle {
+            position: fixed;
+            top: 30px;
+            right: 30px;
+            z-index: 1001;
+            cursor: pointer;
+            padding: 12px 20px;
+            font-size: 1.2rem;
+            animation: slideDown 0.6s ease 0.2s both;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 100px 0;
+        }
+
+        .hero-content h1 {
+            font-family: 'Unbounded', sans-serif;
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: fadeInUp 0.8s ease 0.2s both;
+        }
+
+        .hero-content .tagline {
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            color: var(--text-secondary);
+            margin-bottom: 30px;
+            animation: fadeInUp 0.8s ease 0.4s both;
+        }
+
+        .hero-content .subtitle {
+            font-size: clamp(0.9rem, 2vw, 1.1rem);
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+            line-height: 1.6;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            animation: fadeInUp 0.8s ease 0.6s both;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 0.8s ease 0.8s both;
+        }
+
+        .btn {
+            padding: 16px 36px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+            cursor: pointer;
+            border: none;
+            font-family: 'Space Mono', monospace;
+        }
+
+        .btn-primary {
+            background: var(--primary-gradient);
+            color: white;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 25px rgba(102, 126, 234, 0.6);
+        }
+
+        .btn-secondary {
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            color: var(--text-primary);
+        }
+
+        .btn-secondary:hover {
+            background: var(--glass-border);
+            transform: translateY(-3px);
+        }
+
+        /* Social Links */
+        .social-links {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 40px;
+            animation: fadeInUp 0.8s ease 1s both;
+        }
+
+        .social-links a {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-primary);
+            font-size: 1.3rem;
+            transition: all 0.3s ease;
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+        }
+
+        .social-links a:hover {
+            transform: translateY(-5px) scale(1.1);
+            background: var(--primary-gradient);
+        }
+
+        /* Section Styling */
+        section {
+            padding: 100px 0;
+            position: relative;
+        }
+
+        .section-title {
+            font-family: 'Unbounded', sans-serif;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            margin-bottom: 60px;
+            text-align: center;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Education & Experience Cards */
+        .timeline {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .timeline-item {
+            margin-bottom: 40px;
+            animation: fadeInUp 0.6s ease both;
+        }
+
+        .timeline-card {
+            padding: 30px;
+            position: relative;
+        }
+
+        .timeline-card h3 {
+            font-family: 'Unbounded', sans-serif;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: var(--text-primary);
+        }
+
+        .timeline-card h4 {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+        }
+
+        .timeline-card .date {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 15px;
+            opacity: 0.8;
+        }
+
+        .timeline-card .location {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            opacity: 0.7;
+            margin-bottom: 15px;
+        }
+
+        .timeline-card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .timeline-card li {
+            margin-bottom: 12px;
+            padding-left: 25px;
+            position: relative;
+            line-height: 1.6;
+            color: var(--text-secondary);
+        }
+
+        .timeline-card li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: bold;
+        }
+
+        /* Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .skill-category {
+            padding: 30px;
+        }
+
+        .skill-category h3 {
+            font-family: 'Unbounded', sans-serif;
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            background: var(--warm-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .skill-tag {
+            padding: 8px 16px;
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            transition: all 0.3s ease;
+        }
+
+        .skill-tag:hover {
+            background: var(--primary-gradient);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        /* Projects Grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            padding: 35px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-card h3 {
+            font-family: 'Unbounded', sans-serif;
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            background: var(--secondary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .project-card p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .tech-badge {
+            padding: 5px 12px;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 15px;
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+        }
+
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .project-link:hover {
+            gap: 12px;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Publications */
+        .publications-list {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .publication-card {
+            padding: 35px;
+            margin-bottom: 30px;
+        }
+
+        .publication-card h3 {
+            font-family: 'Unbounded', sans-serif;
+            font-size: 1.4rem;
+            margin-bottom: 12px;
+            color: var(--text-primary);
+        }
+
+        .publication-card .venue {
+            display: inline-block;
+            padding: 5px 15px;
+            background: var(--primary-gradient);
+            color: white;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-bottom: 15px;
+        }
+
+        .publication-card .status {
+            display: inline-block;
+            padding: 5px 15px;
+            background: var(--accent-gradient);
+            color: white;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-left: 10px;
+            margin-bottom: 15px;
+        }
+
+        /* Contact Section */
+        #contact {
+            text-align: center;
+            padding: 120px 0;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .contact-item {
+            padding: 25px 35px;
+            min-width: 250px;
+        }
+
+        .contact-item h4 {
+            font-family: 'Unbounded', sans-serif;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            background: var(--warm-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .contact-item a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .contact-item a:hover {
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translate(-50%, -20px);
+            }
+            to {
+                opacity: 1;
+                transform: translate(-50%, 0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 20px;
+            }
+
+            nav {
+                top: 20px;
+                padding: 10px 20px;
+            }
+
+            nav ul {
+                gap: 15px;
+            }
+
+            nav a {
+                font-size: 0.8rem;
+            }
+
+            .theme-toggle {
+                top: 20px;
+                right: 20px;
+                padding: 10px 16px;
+                font-size: 1rem;
+            }
+
+            section {
+                padding: 60px 0;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+
+        /* Scroll Animation Observer */
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
 </head>
 <body>
-
-<header>
-  <img src="https://github.com/vidhanjain03/vidhanjain03.github.io/blob/main/profile_pic.jpg?raw=true" alt="Vidhan Jain Photo" />
-  <h1>Vidhan Jain</h1>
-  <p>📞 9755248639 | 📧 <a href="mailto:vidhanjain2013@gmail.com">vidhanjain2013@gmail.com</a></p>
-  <p><a href="https://www.linkedin.com/in/vidhan-jain-bb9393197/" target="_blank">LinkedIn</a> | 
-     <a href="https://github.com/vidhanjain03" target="_blank">GitHub</a></p>
-</header>
-
-<div class="container">
-
-  <section>
-    <h2>Education</h2>
-    <ul>
-      <li><strong>NIT Rourkela</strong>, M.Tech Signal and Image Processing — CGPA: 9.58</li>
-      <li><strong>JEC</strong>, B.Tech ECE — CGPA: 8.23</li>
-      <li><strong>Little World School</strong> — 88.2%</li>
-    </ul>
-  </section>
-
-  <section>
-    <h2>Experience</h2>
-    <p><strong>Space Application Centre, ISRO</strong></p>
-    <p>Developed an method for identifying individual tree crowns from airborne LiDAR data.</p>
-  </section>
-
-  <section>
-    <h2>Research Project</h2>
-    <p><strong>Small Object Detection in Degraded Remote Sensing Images</strong></p>
-    <p>Using Sparsity and DETR for real-time and multi-resolution detection in degraded aerial images (haze, mist, etc.).</p>
-  </section>
-
-  <section>
-    <h2>Projects</h2>
-
-    <div class="project">
-      <h3>Eye Disease Classification</h3>
-      <p>ResNet50 (84.2%) vs ViT (78.6%) trained on 16,000+ images.</p>
-      <a href="https://github.com/vidhanjain03/eye-disease-classification" target="_blank">View Project</a>
+    <!-- Animated Background -->
+    <div class="bg-animation">
+        <div class="gradient-orb orb-1"></div>
+        <div class="gradient-orb orb-2"></div>
+        <div class="gradient-orb orb-3"></div>
     </div>
 
-    <div class="project">
-      <h3>Face Mask Detection</h3>
-      <p>Used MobileNetV2 and transfer learning on mask dataset.</p>
-      <a href="https://github.com/vidhanjain03/face-mask-detection" target="_blank">View Project</a>
-    </div>
+    <!-- Navigation -->
+    <nav class="glass">
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
 
-    <div class="project">
-      <h3>Anime Recommendation System</h3>
-      <p>Cosine similarity-based recommendation on 70k+ users and 12k+ animes.</p>
-      <a href="https://github.com/vidhanjain03/anime-recommender" target="_blank">View Project</a>
-    </div>
+    <!-- Theme Toggle -->
+    <button class="theme-toggle glass" onclick="toggleTheme()" aria-label="Toggle theme">
+        <span id="theme-icon">🌙</span>
+    </button>
 
-  </section>
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Vidhan Jain</h1>
+                <p class="tagline">ML/AI Research Engineer</p>
+                <p class="subtitle">
+                    Master's student at NIT Rourkela specializing in Computer Vision, Thermal Imaging, 
+                    and Deep Learning. Building intelligent systems that push the boundaries of visual perception.
+                </p>
+                <div class="cta-buttons">
+                    <a href="#projects" class="btn btn-primary">View My Work</a>
+                    <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+                </div>
+                <div class="social-links">
+                    <a href="mailto:vidhanjain2019@gmail.com" aria-label="Email">📧</a>
+                    <a href="https://linkedin.com/in/vidhanjain" target="_blank" rel="noopener" aria-label="LinkedIn">💼</a>
+                    <a href="https://github.com/vidhanjain03" target="_blank" rel="noopener" aria-label="GitHub">🔗</a>
+                    <a href="tel:+919755248639" aria-label="Phone">📱</a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <section>
-    <h2>Skills</h2>
-    <ul>
-      <li><strong>Languages:</strong> Python, SQL, MATLAB</li>
-      <li><strong>ML/DL:</strong> PyTorch, TensorFlow, Sklearn, Skimage</li>
-      <li><strong>Tools:</strong> VS Code, GitHub, WordPress</li>
-    </ul>
-  </section>
+    <!-- Education Section -->
+    <section id="about" class="fade-in-section">
+        <div class="container">
+            <h2 class="section-title">Education</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-card glass">
+                        <h3>Master of Technology</h3>
+                        <h4>National Institute of Technology, Rourkela</h4>
+                        <p class="date">Aug 2024 – Present</p>
+                        <p class="location">Rourkela, Odisha</p>
+                        <ul>
+                            <li><strong>Specialization:</strong> Signal and Image Processing</li>
+                            <li><strong>Current CGPA:</strong> 9.69</li>
+                            <li><strong>Relevant Coursework:</strong> Computer Vision, Machine Intelligence, Soft Computing, Advanced DSP, Optimization Techniques, Linear Algebra, Probability, Multimedia Signal Processing</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-card glass">
+                        <h3>Bachelor of Technology</h3>
+                        <h4>Jabalpur Engineering College</h4>
+                        <p class="date">Aug 2019 – May 2023</p>
+                        <p class="location">Jabalpur, Madhya Pradesh</p>
+                        <ul>
+                            <li><strong>Major:</strong> Electronics and Communication Engineering</li>
+                            <li><strong>CGPA:</strong> 8.23</li>
+                            <li><strong>Foundation:</strong> Data Structures, Programming in C, Digital Signal Processing</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-</div>
+    <!-- Experience Section -->
+    <section id="experience" class="fade-in-section">
+        <div class="container">
+            <h2 class="section-title">Experience</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-card glass">
+                        <h3>Research Intern</h3>
+                        <h4>Space Application Centre, ISRO</h4>
+                        <p class="date">June 2022 – November 2022</p>
+                        <p class="location">Ahmedabad, Gujarat</p>
+                        <p style="color: var(--text-secondary); margin-bottom: 15px;"><em>Under Anand S. Sahadevan</em></p>
+                        <ul>
+                            <li>Preprocessed and structured large-scale airborne LiDAR datasets for comprehensive analysis</li>
+                            <li>Developed an innovative method for identifying individual tree crowns from airborne LiDAR data</li>
+                            <li>Implemented tree crown delineation using region-growing algorithms after identifying tree tops in rasterized middle and top layers of point clouds</li>
+                            <li>Validated accuracy through comparison between estimated values and ground truth data</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<footer>
-  <p>&copy; 2025 Vidhan Jain</p>
-</footer>
+    <!-- Research & Publications -->
+    <section id="research" class="fade-in-section">
+        <div class="container">
+            <h2 class="section-title">Research & Publications</h2>
+            <div class="publications-list">
+                <div class="publication-card glass">
+                    <h3>TSRNet: A Novel Lightweight Thermal Saliency Refinement Network for Tiny Human Detection</h3>
+                    <span class="venue">NCC 2026</span>
+                    <span class="status">Accepted</span>
+                    <p style="color: var(--text-secondary); margin-top: 15px; line-height: 1.7;">
+                        Research conducted under S.K. Dhara at NIT Rourkela
+                    </p>
+                    <ul style="margin-top: 15px;">
+                        <li>Proposed TSRNet, a novel lightweight network that retains weak thermal signatures of tiny individuals amidst background noise and clutter</li>
+                        <li>Introduced the Dual-Frequency Refinement (DFR) module to enhance salient features while suppressing background noise</li>
+                        <li>Developed the Axial Context Pooling (ACP) module that generates comprehensive 3D filter maps for salient region identification</li>
+                        <li>Achieved state-of-the-art performance: <strong>0.454 mAP@0.5</strong> on RGBT TinyPerson dataset, outperforming competitors by <strong>5.5%</strong> with only <strong>36.5 GFLOPs</strong></li>
+                    </ul>
+                </div>
+                <div class="publication-card glass">
+                    <h3>HRT-DETR: High Resolution Thermal Detection Transformer</h3>
+                    <span class="venue">Research Project</span>
+                    <span class="status">Under Development</span>
+                    <p style="color: var(--text-secondary); margin-top: 15px; line-height: 1.7;">
+                        November 2025 – Present | Research Under S.K. Dhara, NIT Rourkela
+                    </p>
+                    <ul style="margin-top: 15px;">
+                        <li>Developed custom backbone with novel multi-kernel Selective Kernel convolutions optimized for thermal imagery feature extraction</li>
+                        <li>Achieved high computational efficiency with fewer than 10 GFLOPs</li>
+                        <li>Created novel Hybrid Encoder integrating Cascade Group Attention with specialized Feature Alignment Module</li>
+                        <li>Leveraged RT-DETR framework to create specialized solution for thermal drone surveillance applications</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- Projects Section -->
+    <section id="projects" class="fade-in-section">
+        <div class="container">
+            <h2 class="section-title">Featured Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card glass">
+                    <h3>Eye Disease Classification & Model Optimization</h3>
+                    <p>
+                        Conducted comparative evaluation between ResNet50 and Vision Transformer for medical imaging, 
+                        achieving 84.2% accuracy. Engineered inference optimization pipeline with ONNX and TensorRT, 
+                        containerized using Docker for scalable cloud deployment.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-badge">Python</span>
+                        <span class="tech-badge">PyTorch</span>
+                        <span class="tech-badge">TensorRT</span>
+                        <span class="tech-badge">Docker</span>
+                        <span class="tech-badge">ONNX</span>
+                    </div>
+                    <a href="https://github.com/vidhanjain03" target="_blank" class="project-link">
+                        View on GitHub →
+                    </a>
+                </div>
+                <div class="project-card glass">
+                    <h3>Real-Time Face Mask Detection</h3>
+                    <p>
+                        Fine-tuned MobileNetV2 for edge deployment with low computational cost. 
+                        Implemented post-training quantization and graph optimization via TensorRT. 
+                        Deployed as lightweight Docker container for seamless integration with video surveillance.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-badge">Python</span>
+                        <span class="tech-badge">MobileNetV2</span>
+                        <span class="tech-badge">TensorRT</span>
+                        <span class="tech-badge">Docker</span>
+                        <span class="tech-badge">OpenCV</span>
+                    </div>
+                    <a href="https://github.com/vidhanjain03" target="_blank" class="project-link">
+                        View on GitHub →
+                    </a>
+                </div>
+                <div class="project-card glass">
+                    <h3>Text to Image Generator</h3>
+                    <p>
+                        Built web application enabling image generation from text prompts using Stable Diffusion XL 
+                        via Hugging Face Inference API. Deployed using StreamLit for intuitive user experience.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-badge">Python</span>
+                        <span class="tech-badge">HuggingFace API</span>
+                        <span class="tech-badge">Stable Diffusion</span>
+                        <span class="tech-badge">StreamLit</span>
+                    </div>
+                    <a href="https://github.com/vidhanjain03" target="_blank" class="project-link">
+                        View on GitHub →
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="fade-in-section">
+        <div class="container">
+            <h2 class="section-title">Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category glass">
+                    <h3>Languages</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">C</span>
+                        <span class="skill-tag">C++</span>
+                        <span class="skill-tag">MATLAB</span>
+                        <span class="skill-tag">SQL</span>
+                    </div>
+                </div>
+                <div class="skill-category glass">
+                    <h3>ML/DL Libraries</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">PyTorch</span>
+                        <span class="skill-tag">TensorFlow</span>
+                        <span class="skill-tag">NumPy</span>
+                        <span class="skill-tag">Pandas</span>
+                        <span class="skill-tag">Matplotlib</span>
+                        <span class="skill-tag">Sklearn</span>
+                        <span class="skill-tag">Skimage</span>
+                        <span class="skill-tag">OpenCV</span>
+                    </div>
+                </div>
+                <div class="skill-category glass">
+                    <h3>MLOps & Tools</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">ONNX</span>
+                        <span class="skill-tag">TensorRT</span>
+                        <span class="skill-tag">Docker</span>
+                        <span class="skill-tag">GitHub</span>
+                        <span class="skill-tag">VS Code</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="fade-in-section">
+        <div class="container">
+            <h2 class="section-title">Let's Connect</h2>
+            <p style="color: var(--text-secondary); font-size: 1.2rem; margin-bottom: 40px;">
+                I'm always interested in hearing about new opportunities, research collaborations, or just chatting about AI and computer vision!
+            </p>
+            <div class="contact-info">
+                <div class="contact-item glass">
+                    <h4>Email</h4>
+                    <a href="mailto:vidhanjain2019@gmail.com">vidhanjain2019@gmail.com</a>
+                </div>
+                <div class="contact-item glass">
+                    <h4>Phone</h4>
+                    <a href="tel:+919755248639">+91 97552 48639</a>
+                </div>
+                <div class="contact-item glass">
+                    <h4>LinkedIn</h4>
+                    <a href="https://linkedin.com/in/vidhanjain" target="_blank" rel="noopener">linkedin.com/in/vidhanjain</a>
+                </div>
+                <div class="contact-item glass">
+                    <h4>GitHub</h4>
+                    <a href="https://github.com/vidhanjain03" target="_blank" rel="noopener">github.com/vidhanjain03</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Vidhan Jain. Built with passion for AI and design.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Theme Toggle
+        function toggleTheme() {
+            document.body.classList.toggle('light-mode');
+            const themeIcon = document.getElementById('theme-icon');
+            themeIcon.textContent = document.body.classList.contains('light-mode') ? '☀️' : '🌙';
+            localStorage.setItem('theme', document.body.classList.contains('light-mode') ? 'light' : 'dark');
+        }
+
+        // Load saved theme
+        if (localStorage.getItem('theme') === 'light') {
+            document.body.classList.add('light-mode');
+            document.getElementById('theme-icon').textContent = '☀️';
+        }
+
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Intersection Observer for Fade-in Animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in-section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Stagger animation for timeline items
+        document.querySelectorAll('.timeline-item').forEach((item, index) => {
+            item.style.animationDelay = `${index * 0.2}s`;
+        });
+
+        // Parallax effect on scroll
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const orbs = document.querySelectorAll('.gradient-orb');
+            orbs.forEach((orb, index) => {
+                const speed = (index + 1) * 0.5;
+                orb.style.transform = `translateY(${scrolled * speed}px)`;
+            });
+        });
+
+        // Cursor trail effect (optional)
+        document.addEventListener('mousemove', (e) => {
+            const x = e.clientX;
+            const y = e.clientY;
+            
+            const trail = document.createElement('div');
+            trail.className = 'cursor-trail';
+            trail.style.cssText = `
+                position: fixed;
+                width: 10px;
+                height: 10px;
+                border-radius: 50%;
+                background: var(--primary-gradient);
+                pointer-events: none;
+                left: ${x}px;
+                top: ${y}px;
+                opacity: 0.5;
+                z-index: 9999;
+                animation: fadeOut 1s forwards;
+            `;
+            
+            document.body.appendChild(trail);
+            
+            setTimeout(() => trail.remove(), 1000);
+        });
+
+        // Add fadeOut animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fadeOut {
+                to {
+                    opacity: 0;
+                    transform: scale(0);
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
 </body>
 </html>
