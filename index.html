@@ -671,62 +671,77 @@
             transform: translateY(0);
         }
 
-        /* Responsive Fixes */
+        /* --- Desktop: Hide Burger (Safety) --- */
+        .burger-menu {
+            display: none;
+        }
+
+        /* --- Mobile Only Changes --- */
         @media (max-width: 768px) {
-            .container {
-                padding: 0 20px;
-            }
-
-            /* Optimized Mobile Nav */
+            /* Position the Nav container */
             nav.glass {
-                top: 15px; 
-                padding: 8px 16px; 
-                width: 90%; 
-                max-width: 400px;
-                white-space: nowrap; 
-                overflow-x: auto; 
+                top: 35px;
+                left: 33px; /* Position to top-left */
+                transform: none;
+                width: auto;
+                padding: 10px;
+                z-index: 1002;
             }
 
-            nav ul {
-                gap: 12px; 
-                justify-content: space-between;
-                width: 100%;
-            }
-
-            nav a {
-                font-size: 0.75rem; 
-            }
-
-            .theme-toggle {
-                top: 15px;
-                right: 15px; 
-                padding: 8px 12px;
-                font-size: 0.9rem;
-            }
-
-            section {
-                padding: 60px 0;
-            }
-
-            /* Profile Image Resize for Mobile */
-            .profile-img {
-                width: 140px;
-                height: 140px;
-                margin-bottom: 10px;
-            }
-
-            .projects-grid, .skills-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .cta-buttons {
+            /* Burger Icon Styling */
+            .burger-menu {
+                display: flex;
                 flex-direction: column;
-                align-items: center;
+                gap: 5px;
+                cursor: pointer;
+                padding: 5px;
             }
 
-            .btn {
-                width: 100%;
-                max-width: 300px;
+            .burger-menu span {
+                display: block;
+                width: 25px;
+                height: 3px;
+                background: var(--text-primary);
+                border-radius: 3px;
+                transition: 0.3s;
+            }
+
+            /* Collapse/Hide the Menu by default */
+            nav ul {
+                display: none; /* Hidden */
+                flex-direction: column;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                background: var(--glass-bg);
+                backdrop-filter: blur(20px);
+                border: 1px solid var(--glass-border);
+                border-radius: 15px;
+                padding: 20px;
+                width: 200px;
+                gap: 15px;
+            }
+
+            /* Show menu when checkbox is checked */
+            #menu-toggle:checked ~ ul {
+                display: flex;
+            }
+
+            /* Animate Burger to 'X' when open */
+            #menu-toggle:checked + .burger-menu span:nth-child(1) {
+                transform: translateY(8px) rotate(45deg);
+            }
+            #menu-toggle:checked + .burger-menu span:nth-child(2) {
+                opacity: 0;
+            }
+            #menu-toggle:checked + .burger-menu span:nth-child(3) {
+                transform: translateY(-8px) rotate(-45deg);
+            }
+
+            /* Clean up Nav links for mobile stack */
+            nav a {
+                font-size: 1rem;
+                display: block;
             }
         }
     </style>
@@ -739,6 +754,12 @@
     </div>
 
     <nav class="glass">
+        <input type="checkbox" id="menu-toggle" style="display: none;">
+        <label for="menu-toggle" class="burger-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
         <ul>
             <li><a href="#home">Home</a></li>
             <li><a href="#experience">Experience</a></li> 
