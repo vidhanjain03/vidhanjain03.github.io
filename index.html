@@ -6,31 +6,62 @@
     <title>Vidhan Jain - ML/AI Research Engineer</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;400;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-            --accent-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-            --warm-gradient: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+            --primary-gradient: linear-gradient(135deg, #00ff87 0%, #00d4ff 100%);
+            --secondary-gradient: linear-gradient(135deg, #ff6b35 0%, #ff0080 100%);
+            --accent-gradient: linear-gradient(135deg, #00d4ff 0%, #7b2fff 100%);
+            --warm-gradient: linear-gradient(135deg, #00ff87 0%, #00d4ff 100%);
             
-            --bg-main: #0a0e27;
-            --bg-secondary: #1a1f3a;
-            --text-primary: #ffffff;
-            --text-secondary: #b8c5d6;
-            --glass-bg: rgba(255, 255, 255, 0.05);
-            --glass-border: rgba(255, 255, 255, 0.1);
-            --shadow-color: rgba(0, 0, 0, 0.3);
+            --bg-main: #060a10;
+            --bg-secondary: #0d1520;
+            --text-primary: #e0f7f4;
+            --text-secondary: #7ecfbe;
+            --glass-bg: rgba(0, 255, 135, 0.04);
+            --glass-border: rgba(0, 212, 255, 0.18);
+            --shadow-color: rgba(0, 212, 255, 0.15);
         }
 
         .light-mode {
-            --bg-main: #f0f4f8;
-            --bg-secondary: #ffffff;
-            --text-primary: #1a1f3a;
-            --text-secondary: #4a5568;
-            --glass-bg: rgba(255, 255, 255, 0.7);
-            --glass-border: rgba(255, 255, 255, 0.9);
-            --shadow-color: rgba(0, 0, 0, 0.1);
+            --primary-gradient: linear-gradient(135deg, #2d7a6b 0%, #1a5c8a 100%);
+            --secondary-gradient: linear-gradient(135deg, #b05a3a 0%, #8a2060 100%);
+            --accent-gradient: linear-gradient(135deg, #1a6a8a 0%, #4a3a9a 100%);
+            --warm-gradient: linear-gradient(135deg, #2d7a6b 0%, #1a6a8a 100%);
+
+            --bg-main: #e8e4dc;
+            --bg-secondary: #f0ece4;
+            --text-primary: #1e2228;
+            --text-secondary: #4a5260;
+            --glass-bg: rgba(30, 34, 40, 0.05);
+            --glass-border: rgba(30, 34, 40, 0.12);
+            --shadow-color: rgba(0, 0, 0, 0.08);
+        }
+
+        /* Light mode grid overlay — very subtle warm tint */
+        .light-mode::before {
+            background-image:
+                linear-gradient(rgba(30, 34, 40, 0.04) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(30, 34, 40, 0.04) 1px, transparent 1px);
+        }
+
+        /* Light mode venue/status badges */
+        .light-mode .publication-card .venue {
+            border-color: #2d7a6b;
+            color: #1e5a50;
+            text-shadow: none;
+        }
+
+        .light-mode .publication-card .status {
+            border-color: #1a5c8a;
+            color: #1a4a70;
+            text-shadow: none;
+        }
+
+        /* Light mode glass hover */
+        .light-mode .glass:hover {
+            box-shadow: 0 12px 48px 0 var(--shadow-color), 0 0 16px rgba(30, 34, 40, 0.06);
+            border-color: rgba(30, 34, 40, 0.22);
         }
 
         * {
@@ -40,12 +71,32 @@
         }
 
         body {
-            font-family: 'Space Mono', monospace;
+            font-family: 'Rajdhani', sans-serif;
             background: var(--bg-main);
             color: var(--text-primary);
             overflow-x: hidden;
             transition: background 0.5s ease, color 0.5s ease;
             position: relative;
+            font-size: 1.05rem;
+            letter-spacing: 0.02em;
+        }
+
+        /* Cyberpunk grid overlay */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            z-index: 0;
+            pointer-events: none;
+            background-image:
+                linear-gradient(rgba(0, 212, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 212, 255, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+        }
+
+        p {
+            text-align: justify;
         }
 
         /* Animated Background */
@@ -72,7 +123,7 @@
         .orb-1 {
             width: 500px;
             height: 500px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
+            background: linear-gradient(135deg, #00ff87, #00d4ff);
             top: -200px;
             left: -200px;
             animation-delay: 0s;
@@ -81,7 +132,7 @@
         .orb-2 {
             width: 400px;
             height: 400px;
-            background: linear-gradient(135deg, #f093fb, #f5576c);
+            background: linear-gradient(135deg, #7b2fff, #ff0080);
             bottom: -150px;
             right: -150px;
             animation-delay: 5s;
@@ -90,7 +141,7 @@
         .orb-3 {
             width: 350px;
             height: 350px;
-            background: linear-gradient(135deg, #4facfe, #00f2fe);
+            background: linear-gradient(135deg, #00d4ff, #00ff87);
             top: 50%;
             right: 10%;
             animation-delay: 10s;
@@ -121,7 +172,8 @@
 
         .glass:hover {
             transform: translateY(-5px) translateZ(0);
-            box-shadow: 0 12px 48px 0 var(--shadow-color);
+            box-shadow: 0 12px 48px 0 var(--shadow-color), 0 0 20px rgba(0, 212, 255, 0.12);
+            border-color: rgba(0, 212, 255, 0.35);
         }
 
         /* Navigation */
@@ -248,7 +300,8 @@
         }
 
         .hero-content h1 {
-            font-family: 'Unbounded', sans-serif;
+            /* font-family: 'Orbitron', sans-serif; */
+            font-family: 'Orbitron', sans-serif;
             font-size: clamp(3rem, 8vw, 6rem);
             font-weight: 700;
             line-height: 1.1;
@@ -295,7 +348,7 @@
             font-size: 1rem;
             cursor: pointer;
             border: none;
-            font-family: 'Space Mono', monospace;
+            font-family: 'Rajdhani', sans-serif;
         }
 
         .btn-primary {
@@ -357,7 +410,7 @@
         }
 
         .section-title {
-            font-family: 'Unbounded', sans-serif;
+            font-family: 'Orbitron', sans-serif;
             font-size: clamp(2rem, 5vw, 3.5rem);
             margin-bottom: 60px;
             text-align: center;
@@ -385,7 +438,7 @@
         }
 
         .timeline-card h3 {
-            font-family: 'Unbounded', sans-serif;
+            font-family: 'Orbitron', sans-serif;
             font-size: 1.5rem;
             margin-bottom: 10px;
             color: var(--text-primary);
@@ -417,11 +470,12 @@
         }
 
         .timeline-card li {
-            margin-bottom: 12px;
+            margin-bottom: 18px;
             padding-left: 25px;
             position: relative;
-            line-height: 1.6;
+            line-height: 1.7;
             color: var(--text-secondary);
+            text-align: justify;
         }
 
         .timeline-card li::before {
@@ -449,7 +503,7 @@
         }
 
         .skill-category h3 {
-            font-family: 'Unbounded', sans-serif;
+            font-family: 'Orbitron', sans-serif;
             font-size: 1.3rem;
             margin-bottom: 20px;
             background: var(--warm-gradient);
@@ -496,7 +550,7 @@
         }
 
         .project-card h3 {
-            font-family: 'Unbounded', sans-serif;
+            font-family: 'Orbitron', sans-serif;
             font-size: 1.4rem;
             margin-bottom: 15px;
             background: var(--secondary-gradient);
@@ -546,10 +600,54 @@
             background-clip: text;
         }
 
+        /* Publication Category Titles */
+        .pub-category-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.6rem;
+            font-weight: 600;
+            margin: 40px 0 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--glass-border);
+            background: var(--warm-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .pub-category-title:first-of-type {
+            margin-top: 0;
+        }
+
         /* Publications */
         .publications-list {
             max-width: 1000px;
             margin: 0 auto;
+        }
+
+        .publication-card ul li {
+            margin-bottom: 18px;
+            padding-left: 25px;
+            position: relative;
+            line-height: 1.7;
+            color: var(--text-secondary);
+            text-align: justify;
+            list-style: none;
+        }
+
+        .publication-card ul li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: bold;
+        }
+
+        .publication-card ul {
+            padding-left: 0;
+            list-style: none;
         }
 
         .publication-card {
@@ -558,7 +656,7 @@
         }
 
         .publication-card h3 {
-            font-family: 'Unbounded', sans-serif;
+            font-family: 'Orbitron', sans-serif;
             font-size: 1.4rem;
             margin-bottom: 12px;
             color: var(--text-primary);
@@ -566,23 +664,31 @@
 
         .publication-card .venue {
             display: inline-block;
-            padding: 5px 15px;
-            background: var(--primary-gradient);
-            color: white;
-            border-radius: 20px;
-            font-size: 0.8rem;
+            padding: 6px 16px;
+            background: transparent;
+            border: 1.5px solid #00ff87;
+            color: #00ff87;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.04em;
             margin-bottom: 15px;
+            text-shadow: 0 0 8px rgba(0, 255, 135, 0.5);
         }
 
         .publication-card .status {
             display: inline-block;
-            padding: 5px 15px;
-            background: var(--accent-gradient);
-            color: white;
-            border-radius: 20px;
-            font-size: 0.8rem;
+            padding: 6px 16px;
+            background: transparent;
+            border: 1.5px solid #00d4ff;
+            color: #00d4ff;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.04em;
             margin-left: 10px;
             margin-bottom: 15px;
+            text-shadow: 0 0 8px rgba(0, 212, 255, 0.5);
         }
 
         /* Contact Section */
@@ -605,7 +711,7 @@
         }
 
         .contact-item h4 {
-            font-family: 'Unbounded', sans-serif;
+            font-family: 'Orbitron', sans-serif;
             font-size: 1.1rem;
             margin-bottom: 10px;
             background: var(--warm-gradient);
@@ -793,7 +899,7 @@
                     <a href="#contact" class="btn btn-secondary">Get In Touch</a>
                 </div>
                 <div class="social-links">
-                    <a href="mailto:vidhanjain2019@gmail.com" aria-label="Email">📧</a>
+                    <a href="/cdn-cgi/l/email-protection#5026393438313e3a31393e6260616910373d31393c7e333f3d" aria-label="Email">📧</a>
                     <a href="https://www.linkedin.com/in/vidhan-jain-bb9393197/" target="_blank" rel="noopener" aria-label="LinkedIn">💼</a>
                     <a href="https://github.com/vidhanjain03" target="_blank" rel="noopener" aria-label="GitHub">🔗</a>
                     <!-- <a href="tel:+919755248639" aria-label="Phone">📱</a> -->
@@ -863,34 +969,53 @@
         <div class="container">
             <h2 class="section-title">Research & Publications</h2>
             <div class="publications-list">
+
+                <!-- Conferences -->
+                <h3 class="pub-category-title">Conferences</h3>
+
                 <div class="publication-card glass">
                     <h3>TSRNet: A Novel Lightweight Thermal Saliency Refinement Network for Tiny Human Detection</h3>
-                    <span class="venue">NCC 2026</span>
+                    <span class="venue">National Conference on Communications (NCC 2026)</span>
                     <span class="status">Accepted</span>
                     <p style="color: var(--text-secondary); margin-top: 15px; line-height: 1.7;">
-                        Research conducted under S.K. Dhara at NIT Rourkela
+                        Research Under Dr. Sobhan Kanti Dhara, NIT Rourkela
                     </p>
                     <ul style="margin-top: 15px;">
-                        <li>Proposed TSRNet, a novel lightweight network that retains weak thermal signatures of tiny individuals amidst background noise and clutter</li>
-                        <li>Introduced the Dual-Frequency Refinement (DFR) module to enhance salient features while suppressing background noise</li>
-                        <li>Developed the Axial Context Pooling (ACP) module that generates comprehensive 3D filter maps for salient region identification</li>
-                        <li>Achieved state-of-the-art performance: <strong>0.454</strong> on RGBT TinyPerson dataset, outperforming competitors by <strong>5.5%</strong> with only <strong>36.5 GFLOPs</strong></li>
+                        <li>Proposed TSRNet, a lightweight saliency network achieving 0.454 mAP@0.5 on RGBT TinyPerson, outperforming SOTA detectors by 5.5% with only 36.5 GFLOPs.</li>
+                        <li>Engineered Dual-Frequency Refinement (DFR) and Axial Context Pooling (ACP) modules to enhance weak thermal signatures via 3D contextual filtering.</li>
                     </ul>
                 </div>
+
                 <div class="publication-card glass">
-                    <h3>HRT-DETR: High Resolution Thermal Detection Transformer</h3>
-                    <span class="venue">Research Project</span>
-                    <span class="status">Under Development</span>
+                    <h3>SAPNet: A Lightweight and Efficient Saliency-Aware Path Network for Tiny Human Detection in Thermal Aerial Imagery</h3>
+                    <span class="venue">IEEE SPACE 2026</span>
+                    <span class="status">Under Review</span>
                     <p style="color: var(--text-secondary); margin-top: 15px; line-height: 1.7;">
-                        November 2025 – Present | Research Under S.K. Dhara, NIT Rourkela
+                        Research Under Dr. Sobhan Kanti Dhara, NIT Rourkela
                     </p>
                     <ul style="margin-top: 15px;">
-                        <li>Developed custom backbone with novel multi-kernel Selective Kernel convolutions optimized for thermal imagery feature extraction</li>
-                        <li>Achieved high computational efficiency with fewer than 10 GFLOPs</li>
-                        <li>Created novel Hybrid Encoder integrating Cascade Group Attention with specialized Feature Alignment Module</li>
-                        <li>Leveraged RT-DETR framework to create specialized solution for thermal drone surveillance applications</li>
+                        <li>Developed SAPNet, achieving 0.404 mAP@0.5 with only 3.4M parameters and 20 GFLOPs, optimized for resource-constrained aerospace platforms.</li>
+                        <li>Engineered novel Saliency-Path and Channel-Reweighting (SPCR) and S3-CSP modules to preserve subtle thermal signatures and enhance multi-scale feature aggregation via dynamic path allocation.</li>
                     </ul>
                 </div>
+
+                <!-- Journals -->
+                <h3 class="pub-category-title">Journals</h3>
+
+                <div class="publication-card glass">
+                    <h3>From Pixel To People: Semantic and Spatial Aggregation and Detection Network for Tiny Object Detection in Aerial Thermal Imagery</h3>
+                    <span class="venue">IEEE Geoscience and Remote Sensing Letters (GRSL)</span>
+                    <span class="status">To be Submitted</span>
+                    <p style="color: var(--text-secondary); margin-top: 15px; line-height: 1.7;">
+                        Research Under Dr. Sobhan Kanti Dhara, NIT Rourkela
+                    </p>
+                    <ul style="margin-top: 15px;">
+                        <li>Architected the Center-Surround Weighted Channel (CSWC) Module to redistribute channel weights and enhance thermal signatures across three down-sampling layers, effectively capturing spatial context.</li>
+                        <li>Engineered Contextual Wrapper Attention (CWA) to model global dependencies and contextual relations between object instances, significantly improving localisation accuracy.</li>
+                        <li>Developed the Semantic-Spatial Fusion (SSF) Module in the network neck for high-level multi-scale feature fusion, specifically addressing feature misalignment to achieve superior results across 3 benchmark datasets.</li>
+                    </ul>
+                </div>
+
             </div>
         </div>
     </section>
@@ -1039,7 +1164,7 @@
             <div class="contact-info">
                 <div class="contact-item glass">
                     <h4>Email</h4>
-                    <a href="mailto:vidhanjain2019@gmail.com">vidhanjain2019@gmail.com</a>
+                    <a href="/cdn-cgi/l/email-protection#2c5a4548444d42464d45421e1c1d156c4b414d4540024f4341"><span class="__cf_email__" data-cfemail="5c2a3538343d32363d35326e6c6d651c3b313d3530723f3331">[email&#160;protected]</span></a>
                 </div>
                 <div class="contact-item glass">
                     <h4>Phone</h4>
@@ -1063,7 +1188,7 @@
         </div>
     </footer>
 
-    <script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         // Theme Toggle
         function toggleTheme() {
             document.body.classList.toggle('light-mode');
