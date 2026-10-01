@@ -1,0 +1,93 @@
+[
+  {
+    "id": "tsrnet",
+    "title": "TSRNet: A Lightweight Thermal Saliency Refinement Network for Tiny Human Detection",
+    "authors": "Vidhan Jain, Tanish, Sobhan Kanti Dhara",
+    "venue": "National Conference on Communications (NCC)",
+    "short": "NCC",
+    "year": 2026,
+    "status": "Published",
+    "theme": "thermal",
+    "firstAuthor": true,
+    "summary": "A small saliency network that makes faint thermal signatures easier to see. It reaches 0.454 mAP@0.5 on RGBT TinyPerson, 5.5% above prior detectors, at only 36.5 GFLOPs. Two new modules do the heavy lifting: Dual-Frequency Refinement and Axial Context Pooling.",
+    "links": []
+  },
+  {
+    "id": "sapnet",
+    "title": "SAPNet: A Lightweight and Efficient Saliency-Aware Path Network for Tiny Human Detection in Thermal Aerial Imagery",
+    "authors": "Vidhan Jain, Tanish, Sobhan Kanti Dhara",
+    "venue": "IEEE SPACE",
+    "short": "IEEE SPACE",
+    "year": 2026,
+    "status": "Published",
+    "theme": "thermal",
+    "firstAuthor": true,
+    "summary": "Built for drones and other small, power-limited platforms: 0.404 mAP@0.5 with just 3.4M parameters and 20 GFLOPs. Saliency-path and channel-reweighting modules keep subtle heat signatures from getting lost as features are merged across scales.",
+    "links": []
+  },
+  {
+    "id": "geostatnet",
+    "title": "GeoStatNet: Geometric-Statistical Feature Fusion for Robust Ship Detection in Degraded Maritime Environments",
+    "authors": "Tanish, Vidhan Jain, Sobhan Kanti Dhara",
+    "venue": "IEEE SPACE",
+    "short": "IEEE SPACE",
+    "year": 2026,
+    "status": "Published",
+    "theme": "maritime",
+    "firstAuthor": false,
+    "summary": "Finding ships when the sea, haze and clouds are working against you, by fusing geometric and statistical cues.",
+    "links": []
+  },
+  {
+    "id": "gfcrnet",
+    "title": "GFCR-Net: Gradient-Guided and Frequency-Gated Context Refinement for Robust Ship Detection in Complex Optical Remote Sensing Images",
+    "authors": "Tanish, Vidhan Jain, Sobhan Kanti Dhara",
+    "venue": "IEEE Geoscience and Remote Sensing Letters (GRSL)",
+    "short": "IEEE GRSL",
+    "year": 2026,
+    "status": "Published",
+    "theme": "maritime",
+    "firstAuthor": false,
+    "summary": "Uses image gradients and frequency information to decide which surrounding context actually helps a ship detector, and which is just clutter.",
+    "links": []
+  },
+  {
+    "id": "ffr",
+    "title": "Frequency-Aware Feature Refinement and Auxiliary Mask Supervision for Tiny Human Detection in Aerial Thermal Images",
+    "authors": "Pratyush Sahu, Vidhan Jain, Sobhan Kanti Dhara",
+    "venue": "IEEE India Geoscience and Remote Sensing Symposium (InGaRSS)",
+    "short": "InGaRSS",
+    "year": 2026,
+    "status": "Accepted",
+    "theme": "thermal",
+    "firstAuthor": false,
+    "summary": "Adds frequency-aware refinement and an extra mask-based training signal so the detector learns where tiny people actually are.",
+    "links": []
+  },
+  {
+    "id": "cganet",
+    "title": "Cross-Scale Correlation Guided Attention Network for Robust Tiny Human Detection in Aerial Thermal Imagery",
+    "authors": "Vidhan Jain, Pratyush Sahu, Sobhan Kanti Dhara",
+    "venue": "ICVGIP",
+    "short": "ICVGIP",
+    "year": 2026,
+    "status": "Under review",
+    "theme": "thermal",
+    "firstAuthor": true,
+    "summary": "Uses correlations between feature scales to guide attention toward the few pixels that belong to a person.",
+    "links": []
+  },
+  {
+    "id": "csca",
+    "title": "Tiny Human Detection from Aerial Infrared Sensor Imagery via Lightweight Center-Surround Context-Aware Framework",
+    "authors": "Vidhan Jain, Pratyush Sahu, Tanish, Sobhan Kanti Dhara",
+    "venue": "IEEE Sensors Letters",
+    "short": "IEEE Sensors Letters",
+    "year": 2026,
+    "status": "Under review",
+    "theme": "thermal",
+    "firstAuthor": true,
+    "summary": "Borrows the center-surround idea from how our own eyes pick out small objects, in a lightweight detector for infrared imagery.",
+    "links": []
+  }
+]

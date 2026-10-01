@@ -1,0 +1,14 @@
+{
+  "buildCommand": "npm run build",
+  "outputDirectory": "_site",
+  "installCommand": "npm install",
+  "ignoreCommand": "git diff HEAD^ HEAD --quiet -- . ':(exclude).pinterest-state'",
+  "cleanUrls": true,
+  "trailingSlash": true,
+  "headers": [
+    {
+      "source": "/(assets|img)/(.*)",
+      "headers": [{ "key": "Cache-Control", "value": "public, max-age=604800" }]
+    }
+  ]
+}

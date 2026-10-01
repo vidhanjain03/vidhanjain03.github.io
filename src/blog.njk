@@ -1,0 +1,26 @@
+---
+layout: layouts/base.njk
+title: Blog
+permalink: /blog/
+description: Everything I've written — notes on machine learning, computer vision, research life and more.
+---
+<div class="page">
+  <header class="page-header">
+    <h1><span class="h1-icon" aria-hidden="true">📝</span>Blog</h1>
+    <p class="lede">Notes on machine learning, computer vision, research life, and whatever I'm learning at the moment. Browse by <a href="/topics/">topic</a> or subscribe via <a href="/feed.xml">RSS</a>.</p>
+  </header>
+
+  {%- for group in collections.posts | byYear %}
+  <section class="year-group">
+    <div class="section-head">
+      <h2>{{ group.year }}</h2>
+      <span class="pill-count">{{ group.posts | length }} post{% if group.posts | length != 1 %}s{% endif %}</span>
+    </div>
+    {%- set list = group.posts %}
+    {%- set showYear = false %}
+    {% include "partials/post-list.njk" %}
+  </section>
+  {%- else %}
+  <p class="empty">No posts yet. Soon!</p>
+  {%- endfor %}
+</div>

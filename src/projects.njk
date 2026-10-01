@@ -1,0 +1,15 @@
+---
+layout: layouts/base.njk
+title: Projects
+permalink: /projects/
+description: Things Vidhan Jain has built — RAG pipelines, segmentation models, and inference pipelines.
+---
+<div class="page">
+  <header class="page-header">
+    <h1><span class="h1-icon" aria-hidden="true">🛠️</span>Projects</h1>
+    <p class="lede">Things I've built outside of papers, mostly to learn how something works end to end. Code is on <a href="{{ site.github }}">GitHub</a>.</p>
+  </header>
+  {%- set list = projects %}
+  {%- set showDescription = true %}
+  {% include "partials/project-cards.njk" %}
+</div>

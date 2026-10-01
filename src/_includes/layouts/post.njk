@@ -1,0 +1,45 @@
+---
+layout: layouts/base.njk
+bodyClass: is-post
+---
+{%- set idx = collections.posts | getCollectionItemIndex(page) %}
+<div class="post-layout">
+  <article class="post">
+    <header class="post-header">
+      <p class="post-kicker">
+        <time datetime="{{ page.date | isoDate }}">{{ page.date | longDate }}</time>
+        <span aria-hidden="true">·</span> {{ content | readingTime }}
+      </p>
+      <h1>{{ title }}</h1>
+      {% if description %}<p class="lede">{{ description }}</p>{% endif %}
+      <div class="post-header-tags">
+        {%- for t in tags | topics %}<a class="tag" href="/topics/{{ t | slugify }}/">#{{ t }}</a>{% endfor -%}
+      </div>
+    </header>
+    <div class="prose post-body">
+      {{ content | safe }}
+    </div>
+
+    <nav class="post-nav" aria-label="More posts">
+      {%- set newer = collections.posts[idx - 1] if idx > 0 else null %}
+      {%- set older = collections.posts[idx + 1] %}
+      {% if older %}<a class="post-nav-link older" href="{{ older.url }}"><small>← Older post</small><span>{{ older.data.title }}</span></a>{% else %}<span></span>{% endif %}
+      {% if newer %}<a class="post-nav-link newer" href="{{ newer.url }}"><small>Newer post →</small><span>{{ newer.data.title }}</span></a>{% endif %}
+    </nav>
+
+    <aside class="author-box">
+      <img src="/assets/img/vidhan-small.jpg" alt="Vidhan Jain" width="72" height="72">
+      <div>
+        <p><strong>Hey, I'm Vidhan.</strong> I build and study neural networks that see, mostly the small, hard-to-see kind. I write here about what I learn along the way.</p>
+        <p class="author-links"><a href="/me/">More about me</a> · <a href="/feed.xml">RSS feed</a> · <a href="mailto:{{ site.email }}">Email</a></p>
+      </div>
+    </aside>
+  </article>
+
+  <aside class="toc" aria-label="On this page">
+    <div class="toc-inner">
+      <p class="toc-title">On this page</p>
+      <ol class="toc-list" data-toc></ol>
+    </div>
+  </aside>
+</div>

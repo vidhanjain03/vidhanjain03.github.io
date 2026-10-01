@@ -1,0 +1,43 @@
+---
+layout: layouts/base.njk
+title: Research
+permalink: /research/
+description: Papers and research by Vidhan Jain on tiny object detection in thermal and aerial imagery, ship detection, and LiDAR.
+---
+<div class="page">
+  <header class="page-header">
+    <h1><span class="h1-icon" aria-hidden="true">🔬</span>Research</h1>
+    <p class="lede">I like problems where the thing you're looking for barely shows up in the data: a person who is a few pixels wide in a thermal image, a ship behind haze, one tree in a forest of point clouds. Most of this work happened in the PRISM research group at NIT Rourkela with Dr. Sobhan Kanti Dhara.</p>
+  </header>
+
+  <div class="prose">
+    <h2 id="in-plain-words">In plain words</h2>
+    <p>Object detectors are great at finding big, clear things. They struggle when the object is tiny, low-contrast, or surrounded by clutter, and they're usually too heavy to run on a drone. My M.Tech thesis, <em>Deep Learning Architectures for Tiny Human Detection in Aerial Thermal Imagery</em>, tackled both problems at once: four lightweight architectures (SAPNet, TSRNet, CGANet and C2SNet), each fixing a different weak spot in the usual backbone → neck → detector pipeline.</p>
+  </div>
+
+  {%- for theme in researchThemes %}
+  {%- set pubs = publications | where("theme", theme.id) %}
+  <section class="research-theme" id="{{ theme.id }}">
+    <h2>{{ theme.title }}</h2>
+    <p class="section-lede">{{ theme.blurb }}</p>
+    {%- if pubs | length %}
+    <ul class="pub-list">
+      {%- for pub in pubs %}
+      {%- set showSummary = true %}
+      {% include "partials/pub-item.njk" %}
+      {%- endfor %}
+    </ul>
+    {%- endif %}
+  </section>
+  {%- endfor %}
+
+  <section class="research-theme" id="recognition">
+    <h2>Recognition</h2>
+    <ul class="plain-list">
+      <li><strong>IndiaAI Fellowship</strong> for my M.Tech research project</li>
+      <li><strong>Winner</strong>, IEEE SPACE M.Tech Student Initiative Program 2026</li>
+      <li><strong>Best Paper Award</strong>, IEEE SPACE (SDP-1)</li>
+      <li><strong>Finalist</strong>, Best M.Tech Project Award</li>
+    </ul>
+  </section>
+</div>

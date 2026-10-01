@@ -1,0 +1,12 @@
+---
+layout: layouts/base.njk
+---
+<div class="page">
+  <header class="page-header">
+    <h1>{% if icon %}<span class="h1-icon" aria-hidden="true">{{ icon }}</span>{% endif %}{{ title }}</h1>
+    {% if lede %}<p class="lede">{{ lede | safe }}</p>{% endif %}
+  </header>
+  <div class="page-content{% if prose %} prose{% endif %}">
+    {{ content | safe }}
+  </div>
+</div>

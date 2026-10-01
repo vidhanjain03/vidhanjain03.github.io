@@ -1,0 +1,17 @@
+---
+layout: layouts/base.njk
+title: Topics
+permalink: /topics/
+description: Blog posts grouped by topic.
+---
+<div class="page">
+  <header class="page-header">
+    <h1><span class="h1-icon" aria-hidden="true">🏷️</span>Topics</h1>
+    <p class="lede">Every tag I've used on the <a href="/blog/">blog</a>.</p>
+  </header>
+  <ul class="topic-cloud">
+    {%- for t in collections.topics %}
+    <li><a class="tag tag-lg" href="/topics/{{ t.name | slugify }}/">#{{ t.name }} <span class="tag-count">{{ t.posts | length }}</span></a></li>
+    {%- endfor %}
+  </ul>
+</div>

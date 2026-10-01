@@ -1,0 +1,17 @@
+[
+  {
+    "id": "thermal",
+    "title": "Tiny humans in thermal imagery",
+    "blurb": "Most of my M.Tech. A person seen from a drone in thermal infrared can be a blob of a few pixels. I designed lightweight detectors that still find them, cheaply enough to run on the drone itself."
+  },
+  {
+    "id": "maritime",
+    "title": "Ships in messy seas",
+    "blurb": "Collaborations on detecting ships in optical remote sensing images, where waves, haze and clouds make everything harder."
+  },
+  {
+    "id": "lidar",
+    "title": "Forests from LiDAR",
+    "blurb": "At ISRO, I turned airborne LiDAR point clouds of dense forest into individual tree crowns using a region-growing algorithm, then checked the results against ground truth."
+  }
+]

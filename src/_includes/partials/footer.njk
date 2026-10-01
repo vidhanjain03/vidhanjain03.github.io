@@ -1,0 +1,26 @@
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="mailto:{{ site.email }}">
+      <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 6 8.5 7 8.5-7"/></svg>
+      Say hello
+    </a>
+    <a href="/feed.xml">
+      <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M5 11a8 8 0 0 1 8 8M5 5a14 14 0 0 1 14 14"/><circle cx="6" cy="18" r="1.3" fill="currentColor"/></svg>
+      RSS feed
+    </a>
+    <a href="{{ site.github }}">
+      <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg>
+      GitHub
+    </a>
+    <a href="{{ site.linkedin }}">
+      <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 10v7M8 7v.01M12 17v-4a2 2 0 0 1 4 0v4M12 10v7"/></svg>
+      LinkedIn
+    </a>
+  </div>
+  <div class="footer-badges">
+    <a class="badge" href="https://www.11ty.dev/">Eleventy</a>
+    <a class="badge" href="{{ site.sourceRepo }}">GitHub</a>
+    <a class="badge" href="https://vercel.com/">Vercel</a>
+  </div>
+  <p class="footer-note">Made by {{ site.name }} · © {{ "now" | currentYear }}</p>
+</footer>
