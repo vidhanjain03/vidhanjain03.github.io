@@ -16,7 +16,7 @@
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="alternate" type="application/rss+xml" title="{{ site.name }}" href="/feed.xml">
   <link rel="preload" href="/assets/fonts/figtree-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | bust }}">
   {# Set theme + accent before paint so there's no flash #}
   <script>
     (function () {
@@ -39,6 +39,6 @@
       {% include "partials/footer.njk" %}
     </main>
   </div>
-  <script src="/assets/js/main.js" defer></script>
+  <script src="{{ '/assets/js/main.js' | bust }}" defer></script>
 </body>
 </html>
