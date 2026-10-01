@@ -1,0 +1,13 @@
+{# Renders one publication `pub` #}
+<li class="pub" id="{{ pub.id }}">
+  <div class="pub-meta">
+    <span class="pub-venue">{{ pub.short }} {{ pub.year }}</span>
+    <span class="status status-{{ pub.status | lower | replace(' ', '-') }}">{{ pub.status }}</span>
+  </div>
+  <h3 class="pub-title">{{ pub.title }}</h3>
+  <p class="pub-authors">{{ pub.authors | replace("Vidhan Jain", "<strong>Vidhan Jain</strong>") | safe }}</p>
+  {%- if showSummary and pub.summary %}<p class="pub-summary">{{ pub.summary }}</p>{% endif %}
+  {%- if pub.links and pub.links.length %}
+  <p class="pub-links">{% for l in pub.links %}<a href="{{ l.url }}">{{ l.label }}</a>{% endfor %}</p>
+  {%- endif %}
+</li>

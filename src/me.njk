@@ -1,0 +1,99 @@
+---
+layout: layouts/base.njk
+title: About me
+permalink: /me/
+description: About Vidhan Jain — ML researcher and applied AI engineer.
+---
+<div class="page">
+  <header class="page-header about-header">
+    <img class="about-photo" src="/assets/img/vidhan.jpg" alt="Vidhan Jain" width="140" height="140">
+    <div>
+      <h1>About me</h1>
+      <p class="lede">Hey, I'm Vidhan! Welcome to my little spot on the web for writing, research, projects and photos.</p>
+    </div>
+  </header>
+
+  <div class="prose">
+    <p>I'm an engineer who started out in electronics, fell for signal and image processing, and ended up spending two years teaching neural networks to find people in thermal images taken from drones. These days I build applied AI systems at <strong>Ascendion</strong> in Bengaluru.</p>
+    <p>What I care about most is understanding <em>why</em> a model works, not only that it does. I like small, efficient architectures, honest evaluations, and measuring what matters instead of what's easy to measure. Outside of work I read about cosmology and spacetime, which is a nice reminder that there are harder problems than class imbalance.</p>
+    <p>This site is where I write down what I learn. Some of it is polished, a lot of it is notes. If something here was useful, or wrong, I'd love to hear about it.</p>
+
+    <h2 id="contact">Contact</h2>
+    <ul>
+      <li>Email: <a href="mailto:{{ site.email }}">{{ site.email }}</a></li>
+      <li>GitHub: <a href="{{ site.github }}">vidhanjain03</a></li>
+      <li>LinkedIn: <a href="{{ site.linkedin }}">Vidhan Jain</a></li>
+      <li>Resume: <a href="{{ site.resume }}">PDF</a></li>
+    </ul>
+
+    <h2 id="now">What I'm doing now</h2>
+    <p>See the <a href="/now/">now page</a>, updated {{ site.nowUpdated }}.</p>
+
+    <h2 id="experience">Experience</h2>
+  </div>
+
+  <ol class="cv-list">
+    <li>
+      <div class="cv-date">2026–now</div>
+      <div class="cv-body">
+        <h3>Ascendion <span class="muted">· Bengaluru</span></h3>
+        <p class="cv-role">Engineer, applied AI</p>
+        <p>Building applied AI systems for clients: retrieval pipelines, LLM integrations and agentic workflows.</p>
+      </div>
+    </li>
+    <li>
+      <div class="cv-date">2025–2026</div>
+      <div class="cv-body">
+        <h3>PRISM Research Group, NIT Rourkela</h3>
+        <p class="cv-role">PG researcher with Dr. Sobhan Kanti Dhara</p>
+        <p>Designed and led four lightweight detection architectures (TSRNet, SAPNet, CGANet, C2SNet) for tiny objects in aerial thermal imagery, and co-authored work on ship detection. <a href="/research/">See the papers →</a></p>
+      </div>
+    </li>
+    <li>
+      <div class="cv-date">2022</div>
+      <div class="cv-body">
+        <h3>Space Applications Centre, ISRO <span class="muted">· Ahmedabad</span></h3>
+        <p class="cv-role">Research intern with Dr. Deepak Putrevu and Dr. Anand S. Sahadevan</p>
+        <p>Processed large airborne LiDAR datasets of forest canopies and wrote a region-growing algorithm to separate individual tree crowns, then checked it against ground truth.</p>
+      </div>
+    </li>
+  </ol>
+
+  <div class="prose"><h2 id="education">Education</h2></div>
+  <ol class="cv-list">
+    <li>
+      <div class="cv-date">2024–2026</div>
+      <div class="cv-body">
+        <h3>National Institute of Technology, Rourkela</h3>
+        <p class="cv-role">M.Tech, Signal and Image Processing</p>
+        <p>Thesis: <em>Deep Learning Architectures for Tiny Human Detection in Aerial Thermal Imagery</em>. IndiaAI Fellowship recipient.</p>
+      </div>
+    </li>
+    <li>
+      <div class="cv-date">2019–2023</div>
+      <div class="cv-body">
+        <h3>Jabalpur Engineering College</h3>
+        <p class="cv-role">B.Tech, Electronics and Communication Engineering</p>
+      </div>
+    </li>
+  </ol>
+
+  <div class="prose">
+    <h2 id="toolbox">Toolbox</h2>
+    <dl class="toolbox">
+      <dt>Languages</dt><dd>Python, SQL, MATLAB, C</dd>
+      <dt>Deep learning</dt><dd>PyTorch, MMDetection, Ultralytics YOLO, TensorFlow</dd>
+      <dt>Applied AI</dt><dd>RAG pipelines, FAISS, LLM APIs, prompt engineering</dd>
+      <dt>Deployment</dt><dd>ONNX, TensorRT, Docker, edge inference</dd>
+      <dt>Favourite topics</dt><dd>Object detection, efficient architectures, thermal imaging, model evaluation</dd>
+    </dl>
+
+    <h2 id="elsewhere">Elsewhere on this site</h2>
+    <ul>
+      <li><a href="/research/">Research</a>: papers with plain-language summaries</li>
+      <li><a href="/projects/">Projects</a>: things I've built</li>
+      <li><a href="/blog/">Blog</a>: notes and longer posts</li>
+      <li><a href="/photos/">Photos</a>: the non-work side</li>
+    </ul>
+  </div>
+</div>

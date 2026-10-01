@@ -1,0 +1,16 @@
+{
+  "name": "Vidhan Jain",
+  "domain": "vidhanjain.com",
+  "url": "https://www.vidhanjain.com",
+  "title": "Vidhan Jain",
+  "description": "Vidhan Jain — ML researcher and applied AI engineer. Writing about computer vision, tiny object detection, and whatever I'm learning.",
+  "tagline": "ML researcher, applied AI engineer, perpetual note-taker.",
+  "sidebarIntro": "I'm <a href=\"/me/\">Vidhan</a>, an ML researcher and applied AI engineer. This is my corner of the web.",
+  "email": "vidhanjain2019@gmail.com",
+  "github": "https://github.com/vidhanjain03",
+  "linkedin": "https://www.linkedin.com/in/vidhan-jain-bb9393197/",
+  "resume": "/assets/vidhan-jain-resume.pdf",
+  "sourceRepo": "https://github.com/vidhanjain03",
+  "nowUpdated": "September 2026",
+  "speechBubble": "Currently building AI systems that scale, and teaching machines to spot things that are <strong>very small</strong> and <strong>very far away</strong>."
+}

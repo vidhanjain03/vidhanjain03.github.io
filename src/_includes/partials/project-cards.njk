@@ -1,0 +1,18 @@
+{# Usage: {% set list = projects %}{% include "partials/project-cards.njk" %} #}
+<div class="card-grid">
+  {%- for p in list %}
+  <article class="card project-card">
+    <div class="card-year">{{ p.year }}</div>
+    <h3 class="card-title">{{ p.title }}</h3>
+    <p class="card-blurb">{{ p.blurb }}</p>
+    {%- if showDescription %}<p class="card-desc">{{ p.description }}</p>{% endif %}
+    {%- if showDescription and p.tags %}<div class="card-tags">{% for t in p.tags %}<span class="tag">{{ t }}</span>{% endfor %}</div>{% endif %}
+    <div class="card-links">
+      {%- if p.article %}<a href="{{ p.article }}">Article</a>{% endif %}
+      {%- if p.demo %}<a href="{{ p.demo }}">Demo</a>{% endif %}
+      {%- if p.source %}<a href="{{ p.source }}">Source</a>{% endif %}
+      {%- if not p.article and not p.demo and not p.source %}<span class="muted">Internship work, not public</span>{% endif %}
+    </div>
+  </article>
+  {%- endfor %}
+</div>

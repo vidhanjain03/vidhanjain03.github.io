@@ -1,0 +1,56 @@
+---
+layout: layouts/base.njk
+title: Photos
+permalink: /photos/
+description: Photos by Vidhan Jain — places, people and small moments.
+---
+<div class="page page-wide">
+  <header class="page-header">
+    <h1><span class="h1-icon" aria-hidden="true">📷</span>Photos</h1>
+    <p class="lede">Places I've been, people I've been there with, and things that caught my eye. Click any photo to see it bigger.{% if gallery.pinterestProfile %} I also post these on <a href="{{ gallery.pinterestProfile }}">Pinterest</a>.{% endif %}</p>
+  </header>
+
+  {%- if gallery.total %}
+  {%- if gallery.groups | length > 1 %}
+  <nav class="album-index" aria-label="Years">
+    {%- for group in gallery.groups %}<a class="tag tag-lg" href="#{{ group.slug }}">{{ group.label }} <span class="tag-count">{{ group.items | length }}</span></a>{% endfor %}
+  </nav>
+  {%- endif %}
+  {%- for group in gallery.groups %}
+  <section class="album" id="{{ group.slug }}">
+    <div class="album-head">
+      <h2>{{ group.label }}</h2>
+      <span class="pill-count">{{ group.items | length }} photo{% if group.items | length != 1 %}s{% endif %}</span>
+    </div>
+    <div class="gallery">
+      {%- for p in group.items %}
+      <figure class="gallery-item">
+        {%- if p.source == "pinterest" %}
+        <a class="photo-link" href="{{ p.full }}" data-fallback="{{ p.fallback }}"><img src="{{ p.src }}" alt="{{ p.alt }}"{% if p.width and p.height %} width="{{ p.width }}" height="{{ p.height }}"{% endif %} loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.closest('.gallery-item').hidden=true"></a>
+        {%- else %}
+        {% photo p.file, p.alt %}
+        {%- endif %}
+        {% if p.caption %}<figcaption>{{ p.caption }}</figcaption>{% endif %}
+      </figure>
+      {%- endfor %}
+    </div>
+  </section>
+  {%- endfor %}
+  {%- else %}
+  <div class="empty-state">
+    <p class="empty-emoji" aria-hidden="true">🎞️</p>
+    <p><strong>The darkroom is still developing.</strong></p>
+    <p class="muted">Photos are on their way. Check back soon{% if gallery.pinterestProfile %}, or see them first on <a href="{{ gallery.pinterestProfile }}">Pinterest</a>{% endif %}.</p>
+  </div>
+  {%- endif %}
+</div>
+
+<dialog class="lightbox" aria-label="Photo viewer">
+  <button class="lightbox-close" type="button" aria-label="Close">✕</button>
+  <button class="lightbox-prev" type="button" aria-label="Previous photo">‹</button>
+  <figure>
+    <img alt="" referrerpolicy="no-referrer">
+    <figcaption class="lightbox-caption"></figcaption>
+  </figure>
+  <button class="lightbox-next" type="button" aria-label="Next photo">›</button>
+</dialog>

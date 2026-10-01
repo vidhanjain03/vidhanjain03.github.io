@@ -1,0 +1,60 @@
+# MOVE THIS FILE TO:  .github/workflows/pinterest-sync.yml  (at the root of your repo)
+#
+# Every 6 hours: fetches photos you've uploaded to Pinterest and adds new ones to the
+# website. Read-only: it never posts or changes anything on Pinterest.
+# Run it by hand any time: GitHub -> Actions -> "Sync Pinterest photos" -> Run workflow.
+#
+# Needs 3 repository secrets (printed by scripts/pinterest_login.py):
+#   PINTEREST_APP_ID, PINTEREST_APP_SECRET, PINTEREST_REFRESH_TOKEN
+
+name: Sync Pinterest photos
+
+on:
+  schedule:
+    - cron: "17 */6 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: pinterest-sync
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install the one package the sync needs
+        run: pip install --quiet cryptography
+
+      - name: Fetch new photos from Pinterest
+        env:
+          PINTEREST_APP_ID: ${{ secrets.PINTEREST_APP_ID }}
+          PINTEREST_APP_SECRET: ${{ secrets.PINTEREST_APP_SECRET }}
+          PINTEREST_REFRESH_TOKEN: ${{ secrets.PINTEREST_REFRESH_TOKEN }}
+        run: python scripts/pinterest_sync.py
+
+      - name: Save changes
+        run: |
+          git add src/_data/pinterestPins.json
+          if [ -f .pinterest-state ]; then git add .pinterest-state; fi
+          if git diff --cached --quiet; then
+            echo "Nothing new."
+            exit 0
+          fi
+          # Commit as the repo owner so Vercel deploys it.
+          git config user.name "${{ github.repository_owner }}"
+          git config user.email "${{ github.actor_id }}+${{ github.actor }}@users.noreply.github.com"
+          if git diff --cached --quiet -- src/_data/pinterestPins.json; then
+            git commit -m "Renew Pinterest login"
+          else
+            git commit -m "Add new photos from Pinterest"
+          fi
+          git push

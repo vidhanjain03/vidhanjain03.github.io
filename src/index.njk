@@ -1,0 +1,79 @@
+---
+layout: layouts/base.njk
+bodyClass: is-home
+---
+<section class="hero">
+  <div class="hero-text">
+    <h1 class="hero-title">Hey, I'm Vidhan!</h1>
+    <p class="hero-sub">ML researcher, applied AI engineer, finder of very small things.</p>
+
+    <h2 class="timeline-heading">A brief timeline</h2>
+    <ol class="timeline">
+      <li>
+        <span class="tl-date">2019–2023</span>
+        <p><a href="/me/#education">Electronics student</a>: B.Tech in ECE at Jabalpur Engineering College. Signals, circuits, and my first real taste of image processing.</p>
+      </li>
+      <li>
+        <span class="tl-date">2022</span>
+        <p><a href="/research/#lidar">ISRO intern</a>: Six months at the Space Applications Centre in Ahmedabad, turning airborne LiDAR scans of forests into individual trees.</p>
+      </li>
+      <li>
+        <span class="tl-date">2024–2026</span>
+        <p><a href="/research/#thermal">Researcher</a>: M.Tech in Signal &amp; Image Processing at NIT Rourkela. Designed four lightweight networks that find people who are only a few pixels wide in aerial thermal images. <a href="/research/">{{ publications | length }} papers</a> came out of it.</p>
+      </li>
+      <li>
+        <span class="tl-date">2026–now</span>
+        <p><a href="/me/#experience">Engineer</a>: Building applied AI systems at Ascendion in Bengaluru, and <a href="/blog/">writing things down</a> as I go.</p>
+      </li>
+    </ol>
+
+    <p class="also"><a href="/me/">Also</a>: reads about cosmology and spacetime for fun, asks too many “but why does it work?” questions, occasional <a href="/photos/">photographer</a>.</p>
+  </div>
+
+  <figure class="hero-figure">
+    <div class="hero-portrait">
+      <img src="/assets/img/vidhan.jpg" alt="Vidhan smiling, arms crossed, in a navy shirt" width="360" height="360">
+    </div>
+    <figcaption class="speech">{{ site.speechBubble | safe }}</figcaption>
+  </figure>
+</section>
+
+<section class="home-section">
+  <div class="section-head">
+    <h2>Latest</h2>
+    <a class="pill-button" href="/blog/">All posts</a>
+  </div>
+  {%- set list = collections.posts | limit(5) %}
+  {%- set showYear = true %}
+  {% include "partials/post-list.njk" %}
+</section>
+
+<section class="home-section">
+  <div class="section-head">
+    <h2>Research</h2>
+    <a class="pill-button" href="/research/">All papers</a>
+  </div>
+  <p class="section-lede">What I spend most of my thinking time on. Plain-language summaries included.</p>
+  <div class="shelf-grid">
+    {%- for theme in researchThemes %}
+    {%- set n = publications | where("theme", theme.id) | count %}
+    <a class="card shelf-card" href="/research/#{{ theme.id }}">
+      <div class="shelf-head">
+        <h3>{{ theme.title }}</h3>
+        {% if n %}<span class="count" title="{{ n }} papers">{{ n }}</span>{% endif %}
+      </div>
+      <p>{{ theme.blurb }}</p>
+    </a>
+    {%- endfor %}
+  </div>
+</section>
+
+<section class="home-section">
+  <div class="section-head">
+    <h2><span class="h2-icon" aria-hidden="true">🛠️</span>Projects</h2>
+    <a class="pill-button" href="/projects/">All projects</a>
+  </div>
+  <p class="section-lede">Things I've built outside of papers.</p>
+  {%- set list = projects | limit(6) %}
+  {% include "partials/project-cards.njk" %}
+</section>

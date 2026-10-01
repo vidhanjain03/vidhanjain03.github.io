@@ -1,0 +1,83 @@
+[
+  {
+    "title": "Literature-RAG",
+    "year": 2026,
+    "blurb": "Ask questions of a pile of research papers",
+    "description": "A retrieval-augmented generation pipeline built from scratch. It splits papers along their real structure instead of fixed token windows, searches with FAISS, and answers with Llama 3.1 through Groq.",
+    "tags": [
+      "RAG",
+      "FAISS",
+      "LLMs"
+    ],
+    "source": "https://github.com/vidhanjain03/research_paper_rag",
+    "demo": "",
+    "article": ""
+  },
+  {
+    "title": "Drywall Defect Segmentation",
+    "year": 2026,
+    "blurb": "Find hairline cracks with a text prompt",
+    "description": "Fine-tuned CLIPSeg to find cracks and taping joints from a text prompt, across ~6,000 images. Cracks are under 1% of pixels, so a Focal + Dice loss did most of the work (mIoU 0.52, Dice 0.67).",
+    "tags": [
+      "CLIPSeg",
+      "Segmentation",
+      "PyTorch"
+    ],
+    "source": "https://github.com/vidhanjain03/CLIPSeg_crack_taping",
+    "demo": "",
+    "article": ""
+  },
+  {
+    "title": "Eye Disease Classifier",
+    "year": 2025,
+    "blurb": "From PyTorch model to TensorRT engine",
+    "description": "ResNet50 vs. Vision Transformer on 5,335 eye images (84.2% accuracy), then the whole road to production: PyTorch → ONNX → TensorRT, packaged in Docker.",
+    "tags": [
+      "PyTorch",
+      "ONNX",
+      "TensorRT"
+    ],
+    "source": "https://github.com/vidhanjain03/eye_disease_classification",
+    "demo": "",
+    "article": ""
+  },
+  {
+    "title": "Text to Image",
+    "year": 2025,
+    "blurb": "Type a sentence, get a picture",
+    "description": "A small Streamlit app on top of Stable Diffusion XL through the Hugging Face Inference API.",
+    "tags": [
+      "Diffusion",
+      "Streamlit"
+    ],
+    "source": "https://github.com/vidhanjain03/text_to_image",
+    "demo": "",
+    "article": ""
+  },
+  {
+    "title": "Face Mask Detection",
+    "year": 2023,
+    "blurb": "Real-time detection on small hardware",
+    "description": "MobileNetV2 fine-tuned for edge devices, then quantized and optimized with TensorRT for live video.",
+    "tags": [
+      "Edge AI",
+      "TensorRT"
+    ],
+    "source": "https://github.com/vidhanjain03/face_mask_detection",
+    "demo": "",
+    "article": ""
+  },
+  {
+    "title": "Tree Crown Delineation",
+    "year": 2022,
+    "blurb": "Counting trees from the sky at ISRO",
+    "description": "Found tree tops in rasterized LiDAR layers and grew regions out from them to outline each crown in a dense forest.",
+    "tags": [
+      "LiDAR",
+      "Remote sensing"
+    ],
+    "source": "https://github.com/vidhanjain03/Tree-Crown-Detection-and-Segmentation",
+    "demo": "",
+    "article": ""
+  }
+]

@@ -1,0 +1,17 @@
+{# Usage: {% set list = collections.posts %}{% include "partials/post-list.njk" %} #}
+<ul class="post-list">
+  {%- for post in list %}
+  <li>
+    <a class="post-row" href="{{ post.url }}">
+      <span class="post-icon" aria-hidden="true">{{ post.data.icon or "📝" }}</span>
+      <span class="post-main">
+        <span class="post-title">{{ post.data.title }}</span>
+        <time class="post-date" datetime="{{ post.date | isoDate }}">{% if showYear %}{{ post.date | longDate }}{% else %}{{ post.date | monthDay }}{% endif %}</time>
+      </span>
+      <span class="post-tags">
+        {%- for t in post.data.tags | topics %}<span class="tag">#{{ t }}</span>{% endfor -%}
+      </span>
+    </a>
+  </li>
+  {%- endfor %}
+</ul>

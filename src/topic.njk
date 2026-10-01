@@ -1,0 +1,21 @@
+---
+layout: layouts/base.njk
+pagination:
+  data: collections.topics
+  size: 1
+  alias: topic
+permalink: "/topics/{{ topic.name | slugify }}/"
+eleventyComputed:
+  title: "#{{ topic.name }}"
+  description: "Posts tagged {{ topic.name }}."
+---
+<div class="page">
+  <header class="page-header">
+    <p class="crumb"><a href="/topics/">← All topics</a></p>
+    <h1>#{{ topic.name }}</h1>
+    <p class="lede">{{ topic.posts | length }} post{% if topic.posts | length != 1 %}s{% endif %} tagged <strong>{{ topic.name }}</strong>.</p>
+  </header>
+  {%- set list = topic.posts %}
+  {%- set showYear = true %}
+  {% include "partials/post-list.njk" %}
+</div>
