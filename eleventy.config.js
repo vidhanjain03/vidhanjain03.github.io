@@ -5,6 +5,8 @@ import { feedPlugin } from "@11ty/eleventy-plugin-rss";
 import syntaxHighlight from "@11ty/eleventy-plugin-syntaxhighlight";
 import Image from "@11ty/eleventy-img";
 import path from "node:path";
+import crypto from "node:crypto";
+import fs from "node:fs";
 
 const NOT_TOPICS = new Set(["all", "posts"]);
 
@@ -70,6 +72,17 @@ export default function (eleventyConfig) {
   eleventyConfig.addFilter("readingTime", (content) => {
     const words = String(content || "").replace(/<[^>]+>/g, " ").split(/\s+/).filter(Boolean).length;
     return `${Math.max(1, Math.round(words / 220))} min read`;
+  });
+  // Adds a fingerprint of the file's contents to its URL, e.g. /assets/css/style.css?v=3f2a9c1b7d.
+  // Whenever the file changes, the URL changes, so every browser fetches the new version on a
+  // normal refresh instead of reusing an old cached copy.
+  eleventyConfig.addFilter("bust", (url) => {
+    try {
+      const hash = crypto.createHash("md5").update(fs.readFileSync(path.join("src", url))).digest("hex").slice(0, 10);
+      return `${url}?v=${hash}`;
+    } catch {
+      return url;
+    }
   });
   eleventyConfig.addFilter("currentYear", () => new Date().getFullYear());
   eleventyConfig.addFilter("limit", (arr, n) => (arr || []).slice(0, n));
