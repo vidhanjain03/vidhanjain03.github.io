@@ -535,10 +535,10 @@ pre code { font-size: inherit; background: none; border: 0; padding: 0; }
   .toc { display: none; }
 }
 
-@media (max-width: 1100px) {
-  :root { --sidebar-w: 270px; }
-  /* Narrower windows: photo on the left, "Hey, I'm Vidhan!" beside it, speech bubble below.
-     The text and figure wrappers dissolve so their pieces can sit in one grid. */
+/* Below ~1500px the big photo column on the right squeezes the intro text into a thin strip,
+   so switch to: photo on the left, "Hey, I'm Vidhan!" beside it, speech bubble below. */
+@media (max-width: 1499px) {
+  /* The text and figure wrappers dissolve so their pieces can sit in one grid. */
   .hero {
     --pw: 150px;                         /* photo size */
     grid-template-columns: var(--pw) minmax(0, 1fr);
@@ -562,6 +562,10 @@ pre code { font-size: inherit; background: none; border: 0; padding: 0; }
   .timeline-heading { grid-area: tlh; margin-top: 36px; }
   .timeline { grid-area: tl; }
   .also { grid-area: also; }
+}
+
+@media (max-width: 1100px) {
+  :root { --sidebar-w: 270px; }
 }
 
 /* ---- Tablets and phones: sidebar becomes a top bar --------------------- */
