@@ -3,6 +3,9 @@
   <div class="pub-meta">
     <span class="pub-venue">{{ pub.short }} {{ pub.year }}</span>
     <span class="status status-{{ pub.status | lower | replace(' ', '-') }}">{{ pub.status }}</span>
+    {%- if pub.award %}
+    <a class="award" href="{{ pub.awardUrl }}">🏆 {{ pub.award }}</a>
+    {%- endif %}
   </div>
   <h3 class="pub-title">{{ pub.title }}</h3>
   <p class="pub-authors">{{ pub.authors | replace("Vidhan Jain", "<strong>Vidhan Jain</strong>") | safe }}</p>
