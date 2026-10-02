@@ -4,10 +4,11 @@ pagination:
   data: collections.topics
   size: 1
   alias: topic
+  addAllPagesToCollections: true
 permalink: "/topics/{{ topic.name | slugify }}/"
 eleventyComputed:
   title: "#{{ topic.name }}"
-  description: "Posts tagged {{ topic.name }}."
+  description: "Vidhan Jain's blog posts about {{ topic.name }}."
 ---
 <div class="page">
   <header class="page-header">
