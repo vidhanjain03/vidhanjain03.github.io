@@ -4,17 +4,56 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   {%- set pageTitle = (title + " | " + site.name) if title and page.url != "/" else (site.name + " — " + site.tagline) %}
+  {%- set pageDesc = description or site.description %}
+  {%- set pageUrl = site.url + page.url %}
+  {%- set isPost = ("/blog/" in page.inputPath) and page.url != "/blog/" %}
   <title>{{ pageTitle }}</title>
-  <meta name="description" content="{{ description or site.description }}">
-  <link rel="canonical" href="{{ site.url }}{{ page.url }}">
-  <meta property="og:title" content="{{ title or site.name }}">
-  <meta property="og:description" content="{{ description or site.description }}">
-  <meta property="og:type" content="{{ 'article' if layout == 'layouts/post.njk' else 'website' }}">
-  <meta property="og:url" content="{{ site.url }}{{ page.url }}">
-  <meta property="og:image" content="{{ site.url }}/assets/img/vidhan.jpg">
-  <meta name="twitter:card" content="summary">
+  <meta name="description" content="{{ pageDesc }}">
+  <meta name="author" content="{{ site.name }}">
+  {%- if noindex %}
+  <meta name="robots" content="noindex">
+  {%- else %}
+  <link rel="canonical" href="{{ pageUrl }}">
+  {%- endif %}
+  {%- if site.verification.google %}
+  <meta name="google-site-verification" content="{{ site.verification.google }}">
+  {%- endif %}
+  {%- if site.verification.bing %}
+  <meta name="msvalidate.01" content="{{ site.verification.bing }}">
+  {%- endif %}
+  <meta name="theme-color" content="#faf6ec" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#17161c" media="(prefers-color-scheme: dark)">
+
+  {#- Link previews (LinkedIn, WhatsApp, X, Slack...) #}
+  <meta property="og:site_name" content="{{ site.name }}">
+  <meta property="og:locale" content="{{ site.locale }}">
+  <meta property="og:type" content="{{ 'article' if isPost else ('profile' if page.url == '/me/' else 'website') }}">
+  <meta property="og:title" content="{{ title if title and page.url != '/' else pageTitle }}">
+  <meta property="og:description" content="{{ pageDesc }}">
+  <meta property="og:url" content="{{ pageUrl }}">
+  <meta property="og:image" content="{{ site.url }}{{ site.ogImage }}">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="{{ site.name }} — {{ site.tagline }}">
+  {%- if isPost %}
+  <meta property="article:published_time" content="{{ page.date | isoDate }}">
+  <meta property="article:author" content="{{ site.url }}/me/">
+  {%- for t in tags | topics %}
+  <meta property="article:tag" content="{{ t }}">
+  {%- endfor %}
+  {%- endif %}
+  {%- if page.url == '/me/' %}
+  <meta property="profile:first_name" content="Vidhan">
+  <meta property="profile:last_name" content="Jain">
+  {%- endif %}
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ title if title and page.url != '/' else pageTitle }}">
+  <meta name="twitter:description" content="{{ pageDesc }}">
+  <meta name="twitter:image" content="{{ site.url }}{{ site.ogImage }}">
+  {% structuredData %}
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="alternate" type="application/rss+xml" title="{{ site.name }}" href="/feed.xml">
+  <link rel="sitemap" type="application/xml" href="/sitemap.xml">
   <link rel="preload" href="/assets/fonts/figtree-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="{{ '/assets/css/style.css' | bust }}">
   {# Set theme + accent before paint so there's no flash #}
