@@ -151,6 +151,22 @@ The sync is one-way: it only reads from Pinterest and never posts, edits, or del
 GitHub pauses scheduled actions in a repo with no activity for 60 days and emails you when
 it does. Re-enable it from the Actions tab.
 
+## SEO
+
+Already handled by the site, nothing to maintain:
+
+- `sitemap.xml` and `robots.txt` are generated on every build. New blog posts are added automatically.
+- Every page has a title, description, canonical URL and link-preview tags (LinkedIn, WhatsApp, X).
+  The preview image is `src/assets/img/og-card.png`.
+- Structured data tells Google the site is about you: your name, role, schools, and
+  GitHub / LinkedIn / Pinterest profiles (from `src/_data/site.json` → `person`), plus your papers
+  and blog posts.
+- When a paper gets an official page (IEEE Xplore / DOI), add it to that paper's `links` in
+  `publications.json`. Google weighs those links highly.
+
+To verify the site in Google Search Console or Bing Webmaster Tools with an HTML tag, paste the code into
+`src/_data/site.json` → `verification.google` / `verification.bing`.
+
 ## Add a paper or a project
 
 Copy an existing entry in `publications.json` or `projects.json` and edit it.

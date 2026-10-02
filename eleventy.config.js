@@ -100,6 +100,89 @@ export default function (eleventyConfig) {
   eleventyConfig.addFilter("where", (arr, key, value) => (arr || []).filter((x) => x[key] === value));
   eleventyConfig.addFilter("count", (arr) => (arr || []).length);
 
+
+  // ---- SEO: structured data (JSON-LD) ----------------------------------
+  // Tells search engines who the site is about and what each page is.
+  // Output is built from src/_data/site.json, publications.json and each page's front matter.
+  eleventyConfig.addShortcode("structuredData", function () {
+    const d = this.ctx || {};
+    const site = d.site || {};
+    const page = d.page || this.page || {};
+    const base = site.url;
+    const abs = (u) => (u && u.startsWith("http") ? u : base + u);
+    const person = {
+      "@type": "Person",
+      "@id": base + "/#person",
+      name: site.name,
+      url: base + "/",
+      image: abs("/assets/img/vidhan.jpg"),
+      jobTitle: site.person?.jobTitle,
+      description: site.person?.description || site.description,
+      worksFor: site.person?.worksFor ? { "@type": "Organization", name: site.person.worksFor } : undefined,
+      homeLocation: site.person?.location ? { "@type": "Place", name: site.person.location } : undefined,
+      alumniOf: (site.person?.alumniOf || []).map((n) => ({ "@type": "CollegeOrUniversity", name: n })),
+      knowsAbout: site.person?.knowsAbout,
+      sameAs: [site.github, site.linkedin, site.pinterest].filter(Boolean),
+    };
+    const website = { "@type": "WebSite", "@id": base + "/#website", name: site.name, url: base + "/", inLanguage: "en", publisher: { "@id": base + "/#person" } };
+    const url = base + page.url;
+    const graph = [];
+
+    if (page.url === "/") {
+      graph.push(website, person);
+    } else if (page.url === "/me/") {
+      graph.push(person, { "@type": "ProfilePage", "@id": url, url, name: d.title, mainEntity: { "@id": base + "/#person" }, isPartOf: { "@id": base + "/#website" } });
+    } else if ((page.inputPath || "").includes("/blog/") && page.url !== "/blog/") {
+      const date = page.date instanceof Date ? page.date.toISOString() : undefined;
+      graph.push({
+        "@type": "BlogPosting",
+        "@id": url + "#post",
+        headline: d.title,
+        description: d.description,
+        datePublished: date,
+        dateModified: d.updated ? new Date(d.updated).toISOString() : date,
+        author: { "@type": "Person", "@id": base + "/#person", name: site.name, url: base + "/" },
+        publisher: { "@id": base + "/#person" },
+        image: abs(site.ogImage),
+        keywords: (d.tags || []).filter((t) => t !== "posts").join(", ") || undefined,
+        mainEntityOfPage: url,
+        isPartOf: { "@id": base + "/#website" },
+      });
+    } else if (page.url === "/research/") {
+      graph.push({
+        "@type": "CollectionPage",
+        "@id": url,
+        url,
+        name: d.title,
+        description: d.description,
+        about: { "@id": base + "/#person" },
+        hasPart: (d.publications || []).map((p) => ({
+          "@type": "ScholarlyArticle",
+          headline: p.title,
+          name: p.title,
+          author: p.authors.split(",").map((n) => n.trim()).map((n) =>
+            n === site.name ? { "@id": base + "/#person" } : { "@type": "Person", name: n }),
+          datePublished: String(p.year),
+          isPartOf: { "@type": "PublicationEvent", name: p.venue },
+          creativeWorkStatus: p.status,
+          abstract: p.summary,
+          award: p.award || undefined,
+          url: (p.links && p.links[0] && p.links[0].url) || url + "#" + p.id,
+        })),
+      });
+    } else {
+      graph.push({ "@type": "WebPage", "@id": url, url, name: d.title, description: d.description || site.description, isPartOf: { "@id": base + "/#website" }, about: { "@id": base + "/#person" } });
+    }
+
+    const json = JSON.stringify({ "@context": "https://schema.org", "@graph": graph }, null, 0).replace(/</g, "\\u003c");
+    return `<script type="application/ld+json">${json}</script>`;
+  });
+
+  // Pages for the sitemap: everything except the 404 page and pages marked noindex.
+  eleventyConfig.addCollection("sitemap", (api) =>
+    api.getAll().filter((p) => p.url && !p.data.noindex && !p.url.endsWith(".xml") && !p.url.endsWith(".txt") && p.url !== "/404.html")
+  );
+
   // ---- Photos ----------------------------------------------------------
   // {% photo "src/assets/photos/rourkela.jpg", "Alt text" %}
   // Makes small, fast WebP + JPEG copies of big phone photos so the gallery loads quickly.
