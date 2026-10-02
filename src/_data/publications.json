@@ -23,7 +23,9 @@
     "theme": "thermal",
     "firstAuthor": true,
     "summary": "Built for drones and other small, power-limited platforms: 0.404 mAP@0.5 with just 3.4M parameters and 20 GFLOPs. Saliency-path and channel-reweighting modules keep subtle heat signatures from getting lost as features are merged across scales.",
-    "links": []
+    "links": [],
+    "award": "Best Paper Award, IEEE SPACE 2026",
+    "awardUrl": "https://ieeespace.org/best-paper-awards/"
   },
   {
     "id": "geostatnet",

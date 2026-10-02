@@ -3,8 +3,8 @@
   "domain": "vidhanjain.com",
   "url": "https://www.vidhanjain.com",
   "title": "Vidhan Jain",
-  "description": "Vidhan Jain — ML researcher and applied AI engineer. Writing about computer vision, tiny object detection, and whatever I'm learning.",
-  "tagline": "ML researcher, applied AI engineer, perpetual note-taker.",
+  "description": "Vidhan Jain — ML researcher and applied AI engineer working on tiny object detection in thermal imagery. Blog, research papers, projects and photos.",
+  "tagline": "ML Researcher & Applied AI Engineer",
   "sidebarIntro": "I'm <a href=\"/me/\">Vidhan</a>, an ML researcher and applied AI engineer. This is my corner of the web.",
   "email": "vidhanjain2019@gmail.com",
   "github": "https://github.com/vidhanjain03",
@@ -12,5 +12,32 @@
   "resume": "/assets/vidhan-jain-resume.pdf",
   "sourceRepo": "https://github.com/vidhanjain03",
   "nowUpdated": "September 2026",
-  "speechBubble": "Currently building AI systems that scale, and teaching machines to spot things that are <strong>very small</strong> and <strong>very far away</strong>."
+  "speechBubble": "Currently building AI systems that scale, and teaching machines to spot things that are <strong>very small</strong> and <strong>very far away</strong>.",
+  "ogImage": "/assets/img/og-card.png",
+  "locale": "en_IN",
+  "pinterest": "https://www.pinterest.com/jainvidhan/",
+  "verification": {
+    "google": "",
+    "bing": ""
+  },
+  "person": {
+    "jobTitle": "Applied AI Engineer",
+    "worksFor": "Ascendion",
+    "location": "Bengaluru, India",
+    "alumniOf": [
+      "National Institute of Technology Rourkela",
+      "Jabalpur Engineering College"
+    ],
+    "knowsAbout": [
+      "Machine learning",
+      "Deep learning",
+      "Computer vision",
+      "Object detection",
+      "Tiny object detection",
+      "Thermal imaging",
+      "Remote sensing",
+      "Retrieval-augmented generation"
+    ],
+    "description": "ML researcher and applied AI engineer working on tiny object detection in thermal and aerial imagery."
+  }
 }
