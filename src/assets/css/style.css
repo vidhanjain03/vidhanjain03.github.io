@@ -392,6 +392,8 @@ a.tag:hover { border-color: var(--accent); color: var(--accent); text-decoration
 .status-published { color: var(--accent); }
 .status-accepted { color: var(--accent); background: var(--accent-soft); border-color: transparent; }
 .status-under-review { color: var(--muted); }
+.award { font-size: 12.5px; font-weight: 700; padding: 3px 9px; border-radius: 999px; background: var(--accent-soft); color: var(--accent); }
+.award:hover { text-decoration: none; filter: brightness(0.95); }
 .pub-title { font-size: 18.5px; line-height: 1.35; letter-spacing: -0.01em; margin-bottom: 6px; }
 .pub-authors { color: var(--text-2); font-size: 14.5px; margin-bottom: 10px; }
 .pub-authors strong { color: var(--text); }
